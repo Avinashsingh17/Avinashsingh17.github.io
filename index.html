@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avinash Nayal | Mechanical Engineer & Researcher</title>
+  <meta name="description" content="Portfolio of Avinash Nayal – PhD Candidate in Mechanical Engineering at the University of Oklahoma, specializing in thermal management, advanced materials, and energy systems." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">AN</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Avinash <span class="accent">Nayal</span></h1>
+        <p class="hero-title">Ph.D. Candidate · Mechanical Engineering</p>
+        <p class="hero-subtitle">University of Oklahoma</p>
+        <p class="hero-bio">
+          Researcher in <span class="accent">thermal management</span>, advanced materials, and energy systems.
+          Experienced at Oak Ridge National Laboratory with 9+ peer-reviewed publications.
+          Passionate about solving complex engineering challenges at the intersection of heat transfer and materials science.
+        </p>
+        <div class="hero-cta">
+          <a href="mailto:avinash.nayal@gmail.com" class="btn btn-primary">Get In Touch</a>
+          <a href="https://www.linkedin.com/in/avinashsinghnayal17/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+          <a href="#publications" class="btn btn-outline">Publications</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-number">9+</span><span class="stat-label">Publications</span></div>
+          <div class="stat"><span class="stat-number">6+</span><span class="stat-label">Scholarships</span></div>
+          <div class="stat"><span class="stat-number">5+</span><span class="stat-label">Years Research</span></div>
+        </div>
+      </div>
+      <div class="hero-avatar">
+        <div class="avatar-ring">
+          <img src="assets/avatar.jpg" alt="Avinash Nayal" id="profile-img" onerror="this.style.display='none'; document.getElementById('avatar-initials').style.display='flex';" />
+          <div id="avatar-initials" class="avatar-initials">AN</div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="Scroll down">
+      <span class="scroll-arrow"></span>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in">About Me</h2>
+      <div class="about-grid fade-in">
+        <div class="about-text">
+          <p>
+            I am a Ph.D. candidate in Mechanical Engineering at the <strong>University of Oklahoma</strong>, advised by Prof. Jivtesh Garg in the Micro/Nano Heat Transfer Lab. My research spans thermal management systems, advanced composite materials, and first-principles computational modeling.
+          </p>
+          <p>
+            Most recently, I completed a prestigious internship at <strong>Oak Ridge National Laboratory (ORNL)</strong> where I investigated phonon thermal transport in energy-relevant materials using DFT simulations, developing Python-based post-processing frameworks that reduced analysis cycle time by 40%.
+          </p>
+          <p>
+            I hold an M.Sc. in Mechanical Engineering from <strong>Arizona State University</strong> and a B.Tech. from <strong>Nirma University</strong>, India. My work has been published in leading journals including RSC Nanoscale, Journal of Vacuum Science & Technology, and Materials Chemistry and Physics.
+          </p>
+          <div class="about-links">
+            <a href="mailto:nayal1@ou.edu" class="about-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              nayal1@ou.edu
+            </a>
+            <a href="tel:+14807658044" class="about-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              +1 480-765-8044
+            </a>
+            <a href="https://www.linkedin.com/in/avinashsinghnayal17/" target="_blank" rel="noopener" class="about-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+        <div class="about-education">
+          <h3 class="sub-heading">Education</h3>
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div>
+              <p class="edu-degree">Ph.D. in Mechanical Engineering</p>
+              <p class="edu-school">University of Oklahoma</p>
+              <p class="edu-year">Aug 2020 – Present</p>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div>
+              <p class="edu-degree">M.Sc. in Mechanical Engineering</p>
+              <p class="edu-school">Arizona State University</p>
+              <p class="edu-year">Aug 2018 – Jul 2020</p>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div>
+              <p class="edu-degree">B.Tech. in Mechanical Engineering</p>
+              <p class="edu-school">Nirma University, India</p>
+              <p class="edu-year">Aug 2013 – May 2017</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title fade-in">Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">GRO Intern – Materials Science & Technology</h3>
+                <p class="timeline-org">Oak Ridge National Laboratory (ORNL)</p>
+              </div>
+              <span class="timeline-date">Jan 2025 – May 2025</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Investigated phonon thermal transport in energy-relevant materials using DFT (Quantum ESPRESSO, Phonopy)</li>
+              <li>Analyzed mechanical strain effects on thermal conductivity in GaN under mentorship of Dr. Lucas Lindsay</li>
+              <li>Developed Python post-processing framework that reduced analysis cycle time by <strong>40%</strong></li>
+            </ul>
+            <div class="tags"><span class="tag">DFT</span><span class="tag">Quantum ESPRESSO</span><span class="tag">Python</span><span class="tag">Phonopy</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Graduate Research Assistant (Phase 2)</h3>
+                <p class="timeline-org">Micro/Nano Heat Transfer Lab, University of Oklahoma</p>
+              </div>
+              <span class="timeline-date">Jan 2023 – Present</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Designed Couette-shear extrusion tool with full GD&T drawings and BOM</li>
+              <li>Achieved uniform temperature control (ΔT &lt; 2°C) across battery thermal modules</li>
+              <li>Led comparative testing of air, liquid, CPCM, and hybrid cooling systems for BTMS</li>
+            </ul>
+            <div class="tags"><span class="tag">BTMS</span><span class="tag">SolidWorks</span><span class="tag">CPCM</span><span class="tag">GD&T</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Graduate Teaching Assistant – Capstone Course</h3>
+                <p class="timeline-org">University of Oklahoma</p>
+              </div>
+              <span class="timeline-date">Aug 2021 – Present</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Managed 6 senior design teams on USPS Automated Delivery Unit Sorter improvements</li>
+              <li>Instructed students in SolidWorks, ANSYS Fluent, and engineering design principles</li>
+            </ul>
+            <div class="tags"><span class="tag">SolidWorks</span><span class="tag">ANSYS Fluent</span><span class="tag">Mentoring</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Graduate Research Assistant (Phase 1)</h3>
+                <p class="timeline-org">Micro/Nano Heat Transfer Lab, University of Oklahoma</p>
+              </div>
+              <span class="timeline-date">Aug 2020 – Dec 2022</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Synthesized expandable graphite composites achieving <strong>3070%</strong> increase in thermal conductivity</li>
+              <li>Conducted first-principles study on hexagonal BCₓP reporting 162 Wm⁻¹K⁻¹ thermal conductivity</li>
+              <li>Mentored 2 junior researchers on thermal testing and data analysis</li>
+            </ul>
+            <div class="tags"><span class="tag">Materials Synthesis</span><span class="tag">First-Principles</span><span class="tag">MATLAB</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Master's Thesis Researcher</h3>
+                <p class="timeline-org">Nano-Engineered Thermal Radiation Group, Arizona State University</p>
+              </div>
+              <span class="timeline-date">May 2019 – Jul 2020</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed theoretical heat transfer model for Solar Thermophotovoltaics (STPV) in MATLAB</li>
+              <li>Built experimental STPV setup achieving &lt;5% deviation from theoretical predictions</li>
+            </ul>
+            <div class="tags"><span class="tag">STPV</span><span class="tag">MATLAB</span><span class="tag">Optics</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Research Intern</h3>
+                <p class="timeline-org">IIT Gandhinagar – Mechanical Engineering Department</p>
+              </div>
+              <span class="timeline-date">Aug 2017 – Jul 2018</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Led testing and overhaul of 5 kWe diesel-powered fuel cell auto-reformer system (DRDO-sponsored)</li>
+              <li>Created scale-up plans from 5 kWe to 30 kWe using ASPEN modeling</li>
+            </ul>
+            <div class="tags"><span class="tag">Fuel Cells</span><span class="tag">ASPEN</span><span class="tag">P&ID</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Research Intern</h3>
+                <p class="timeline-org">Institute for Plasma Research – Dept. of Atomic Energy, India</p>
+              </div>
+              <span class="timeline-date">Jan 2017 – Jul 2017</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Simulated thermo-hydraulic behavior of ITER divertor component using FEM in ANSYS APDL</li>
+              <li>Achieved <strong>30%</strong> better thermal uniformity in divertor cooling system design</li>
+            </ul>
+            <div class="tags"><span class="tag">ANSYS APDL</span><span class="tag">FEM</span><span class="tag">ITER</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESEARCH ===== -->
+  <section id="research" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in">Research & Projects</h2>
+      <p class="section-subtitle fade-in">Key research areas spanning thermal management, materials science, and computational modeling</p>
+      <div class="research-grid">
+
+        <div class="research-card fade-in">
+          <div class="card-icon">🔋</div>
+          <h3>Battery Thermal Management</h3>
+          <p>Comparative evaluation of air-cooled, liquid, CPCM-enhanced, and hybrid cooling configurations achieving ΔT &lt; 2°C uniformity across battery modules.</p>
+          <div class="tags"><span class="tag">BTMS</span><span class="tag">CPCM</span><span class="tag">Heat Transfer</span></div>
+        </div>
+
+        <div class="research-card fade-in">
+          <div class="card-icon">🧪</div>
+          <h3>Advanced Composite Materials</h3>
+          <p>Synthesis of expanded graphite/paraffin composites achieving 3070% thermal conductivity improvement; graphene/epoxy composites with 44% enhancement.</p>
+          <div class="tags"><span class="tag">Graphene</span><span class="tag">EG/PCM</span><span class="tag">Nanomaterials</span></div>
+        </div>
+
+        <div class="research-card fade-in">
+          <div class="card-icon">☀️</div>
+          <h3>Solar Thermophotovoltaics (STPV)</h3>
+          <p>MATLAB-based theoretical model and novel experimental setup using silica microspheres for precise 100 µm gap maintenance, validated to &lt;5% deviation.</p>
+          <div class="tags"><span class="tag">STPV</span><span class="tag">MATLAB</span><span class="tag">Radiation</span></div>
+        </div>
+
+        <div class="research-card fade-in">
+          <div class="card-icon">⚛️</div>
+          <h3>First-Principles Phonon Transport</h3>
+          <p>DFT simulations using Quantum ESPRESSO and Phonopy to investigate phonon thermal transport in GaN and BCₓP, computing thermal conductivity of 162 Wm⁻¹K⁻¹.</p>
+          <div class="tags"><span class="tag">DFT</span><span class="tag">Phonopy</span><span class="tag">Quantum ESPRESSO</span></div>
+        </div>
+
+        <div class="research-card fade-in">
+          <div class="card-icon">⚡</div>
+          <h3>Fuel Cell System Upscaling</h3>
+          <p>Testing and overhaul of 5 kWe diesel-powered fuel cell auto-reformer (DRDO-sponsored), with ASPEN-based scale-up plans to 30 kWe capacity.</p>
+          <div class="tags"><span class="tag">Fuel Cells</span><span class="tag">ASPEN</span><span class="tag">Energy</span></div>
+        </div>
+
+        <div class="research-card fade-in">
+          <div class="card-icon">🌡️</div>
+          <h3>ITER Divertor Thermal Analysis</h3>
+          <p>FEM modeling of high heat flux (>10 MW/m²) divertor behavior in ANSYS APDL, achieving 30% better thermal uniformity through design optimization.</p>
+          <div class="tags"><span class="tag">ANSYS APDL</span><span class="tag">FEM</span><span class="tag">Nuclear Fusion</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section id="publications" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title fade-in">Publications</h2>
+      <p class="section-subtitle fade-in">9 peer-reviewed publications in materials science and thermal engineering journals</p>
+      <div class="pub-list">
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">1</span>
+          <div class="pub-content">
+            <p class="pub-title">Hydrogen-peroxide intercalated expanded graphite facilitates large enhancement in thermal conductivity</p>
+            <p class="pub-authors">Tarannum F., Danayat S., <strong>Nayal A.</strong>, et al.</p>
+            <p class="pub-venue">Journal of Materials Research and Technology · <span class="pub-year">2024</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">2</span>
+          <div class="pub-content">
+            <p class="pub-title">Thickness dependent thermal conductivity of strontium titanate thin films</p>
+            <p class="pub-authors">Annam R.S., Danayat S., <strong>Nayal A.</strong>, et al.</p>
+            <p class="pub-venue">Journal of Vacuum Science & Technology A · <span class="pub-year">2024</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">3</span>
+          <div class="pub-content">
+            <p class="pub-title">Role of four-phonon processes in thermal conductivity</p>
+            <p class="pub-authors">Danayat S., Tasnim Z., <strong>Nayal A.</strong>, Annam R., Garg J.</p>
+            <p class="pub-venue">RSC Nanoscale · <span class="pub-year">2024</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">4</span>
+          <div class="pub-content">
+            <p class="pub-title">Superior enhancement in thermal conductivity of epoxy/graphene nanocomposites through use of dimethylformamide</p>
+            <p class="pub-authors">Danayat S., <strong>Nayal A.</strong>, Tarannum F., Annam R., Muthaiah R., Garg J.</p>
+            <p class="pub-venue">MethodsX, Vol. 11 · <span class="pub-year">2023</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">5</span>
+          <div class="pub-content">
+            <p class="pub-title">Thermally expanded graphite polyetherimide composite with superior electrical and thermal conductivity</p>
+            <p class="pub-authors">Tarannum F., Danayat S., <strong>Nayal A.</strong>, et al.</p>
+            <p class="pub-venue">Materials Chemistry and Physics · <span class="pub-year">2023</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">6</span>
+          <div class="pub-content">
+            <p class="pub-title">Large Enhancement in Thermal Conductivity of Solvent-Cast Expanded Graphite/Polyetherimide Composites</p>
+            <p class="pub-authors">Tarannum F., Danayat S., <strong>Nayal A.</strong>, Muthaiah R., Annam R., Garg J.</p>
+            <p class="pub-venue">Nanomaterials · <span class="pub-year">2022</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">7</span>
+          <div class="pub-content">
+            <p class="pub-title">The superior effect of edge functionalization relative to basal plane functionalization on thermal properties of graphene composites</p>
+            <p class="pub-authors">Muthaiah R., Tarannum F., Danayat S., Annam R., <strong>Nayal A.</strong>, Garg J.</p>
+            <p class="pub-venue">Physical Chemistry Chemical Physics · <span class="pub-year">2022</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">8</span>
+          <div class="pub-content">
+            <p class="pub-title">Expanded Graphite/Paraffin composite phase change materials: Effect of solvent and ultrasonication on thermal properties</p>
+            <p class="pub-authors"><strong>Nayal A.</strong>, Garg J.</p>
+            <p class="pub-venue">APS March Meeting (Presentation) · <span class="pub-year">2022</span></p>
+          </div>
+        </div>
+
+        <div class="pub-item fade-in">
+          <span class="pub-number">9</span>
+          <div class="pub-content">
+            <p class="pub-title">Thermal Conductivity of Hexagonal BC₂P – a First Principle Study</p>
+            <p class="pub-authors">Muthaiah R., Tarannum F., Annam R., <strong>Nayal A.</strong>, Danayat S., Garg J.</p>
+            <p class="pub-venue">RSC Advances · <span class="pub-year">2020</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in">Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skills-group fade-in">
+          <h3 class="skills-heading">Simulation & Modeling</h3>
+          <div class="pills">
+            <span class="pill">ANSYS Fluent</span>
+            <span class="pill">ANSYS APDL</span>
+            <span class="pill">ANSYS Icepak</span>
+            <span class="pill">COMSOL</span>
+            <span class="pill">Quantum ESPRESSO</span>
+            <span class="pill">Phonopy</span>
+            <span class="pill">First-Principles DFT</span>
+            <span class="pill">FEA / CFD</span>
+            <span class="pill">EES</span>
+          </div>
+        </div>
+
+        <div class="skills-group fade-in">
+          <h3 class="skills-heading">Programming</h3>
+          <div class="pills">
+            <span class="pill">Python</span>
+            <span class="pill">MATLAB</span>
+            <span class="pill">C++</span>
+            <span class="pill">Fortran</span>
+            <span class="pill">HPC Workflows</span>
+          </div>
+        </div>
+
+        <div class="skills-group fade-in">
+          <h3 class="skills-heading">CAD & Design</h3>
+          <div class="pills">
+            <span class="pill">SolidWorks</span>
+            <span class="pill">Fusion 360</span>
+            <span class="pill">Tinkercad</span>
+            <span class="pill">GD&T</span>
+            <span class="pill">DFM / DFA / DFC</span>
+          </div>
+        </div>
+
+        <div class="skills-group fade-in">
+          <h3 class="skills-heading">Materials Characterization</h3>
+          <div class="pills">
+            <span class="pill">Raman Spectroscopy</span>
+            <span class="pill">DSC</span>
+            <span class="pill">TGA</span>
+            <span class="pill">XRD</span>
+            <span class="pill">SEM</span>
+            <span class="pill">Laser Flash (LFA467)</span>
+            <span class="pill">Four Point Probe</span>
+            <span class="pill">3D Scanning</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Awards -->
+      <div class="awards fade-in">
+        <h3 class="skills-heading">Awards & Scholarships</h3>
+        <div class="awards-list">
+          <div class="award-item"><span class="award-year">2024</span><span>Exxon Mobile Milam Scholarship, University of Oklahoma</span></div>
+          <div class="award-item"><span class="award-year">2023</span><span>Milton J. Gordon Memorial Scholarship, University of Oklahoma</span></div>
+          <div class="award-item"><span class="award-year">2023</span><span>Exxon Mobile Milam Scholarship, University of Oklahoma</span></div>
+          <div class="award-item"><span class="award-year">2023</span><span>Gallogly College of Engineering Scholarship, University of Oklahoma</span></div>
+          <div class="award-item"><span class="award-year">2022</span><span>Nettie Vincent Boggs Graduate Fellowship, University of Oklahoma</span></div>
+          <div class="award-item"><span class="award-year">2022</span><span>Jim &amp; Bee Close Engineering Scholarship, University of Oklahoma</span></div>
+          <div class="award-item"><span class="award-year">2021</span><span>John E. Francis Scholarship, University of Oklahoma</span></div>
+          <div class="award-item"><span class="award-year">2021</span><span>Jim &amp; Bee Close Engineering Scholarship, University of Oklahoma</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title fade-in">Get In Touch</h2>
+      <p class="section-subtitle fade-in">Open to industry positions in thermal systems, materials engineering, and R&D roles</p>
+      <div class="contact-grid fade-in">
+        <a href="mailto:avinash.nayal@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <p class="contact-label">Email</p>
+          <p class="contact-value">avinash.nayal@gmail.com</p>
+        </a>
+        <a href="https://www.linkedin.com/in/avinashsinghnayal17/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <p class="contact-label">LinkedIn</p>
+          <p class="contact-value">avinashsinghnayal17</p>
+        </a>
+        <a href="tel:+14807658044" class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <p class="contact-label">Phone</p>
+          <p class="contact-value">+1 480-765-8044</p>
+        </a>
+        <a href="mailto:nayal1@ou.edu" class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          </div>
+          <p class="contact-label">University Email</p>
+          <p class="contact-value">nayal1@ou.edu</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Avinash Nayal · Ph.D. Candidate, Mechanical Engineering · University of Oklahoma</p>
+      <p class="footer-sub">Norman, OK 73019</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
