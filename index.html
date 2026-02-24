@@ -334,71 +334,241 @@
     <div class="max-w-[1100px] mx-auto px-6">
       <h2 class="section-title fade-in text-[clamp(1.8rem,4vw,2.4rem)] font-bold tracking-tight mb-3">Research & Projects</h2>
       <p class="fade-in text-text-2 text-base mb-12 max-w-[560px]">Key research areas spanning thermal management, materials science, and computational modeling</p>
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 items-start">
 
-        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] p-6 hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="battery-thermal">
-          <div class="w-12 h-12 rounded-xl bg-crimson/15 border border-crimson/25 flex items-center justify-center mb-4 text-crimson group-hover:bg-crimson group-hover:text-white group-hover:shadow-[0_0_16px_rgba(230,57,86,0.4)] transition-all duration-300">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg>
+        <!-- Battery Thermal Management -->
+        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] overflow-hidden hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="battery-thermal">
+          <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+            <div class="absolute inset-0" style="background: linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 40%, #e63956 100%);"></div>
+            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+              <path d="M0,80 C50,40 100,120 150,80 C200,40 250,120 300,80 C350,40 400,120 450,80" fill="none" stroke="#e63956" stroke-width="2" opacity="0.3"/>
+              <path d="M-20,100 C30,60 80,140 130,100 C180,60 230,140 280,100 C330,60 380,140 430,100" fill="none" stroke="#e63956" stroke-width="1.5" opacity="0.18"/>
+              <path d="M-10,55 C40,15 90,95 140,55 C190,15 240,95 290,55 C340,15 390,95 440,55" fill="none" stroke="#e63956" stroke-width="1.5" opacity="0.18"/>
+              <circle cx="80" cy="70" r="2" fill="#e63956" opacity="0.25"/><circle cx="200" cy="90" r="2.5" fill="#e63956" opacity="0.2"/>
+              <circle cx="320" cy="60" r="1.5" fill="#e63956" opacity="0.2"/>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-2/60 to-transparent"></div>
+            <div class="absolute bottom-3 right-3 w-10 h-10 rounded-lg bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg>
+            </div>
           </div>
-          <h3 class="text-base font-semibold mb-2.5">Battery Thermal Management</h3>
-          <p class="text-sm text-text-2 leading-relaxed mb-3.5">Comparative evaluation of air-cooled, liquid, CPCM-enhanced, and hybrid cooling configurations achieving &Delta;T &lt; 2&deg;C uniformity across battery modules.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag">BTMS</span><span class="tag">CPCM</span><span class="tag">Heat Transfer</span>
+          <div class="p-5">
+            <h3 class="text-base font-semibold mb-1">Battery Thermal Management</h3>
+            <p class="text-xs text-crimson font-medium mb-2.5">Hybrid cooling achieving automotive-grade thermal uniformity</p>
+            <p class="text-sm text-text-2 leading-relaxed mb-3.5">Comparative evaluation of air-cooled, liquid, CPCM-enhanced, and hybrid cooling configurations achieving &Delta;T &lt; 2&deg;C uniformity across battery modules.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag group-hover:border-crimson/50">BTMS</span><span class="tag group-hover:border-crimson/50">CPCM</span><span class="tag group-hover:border-crimson/50">Heat Transfer</span>
+            </div>
           </div>
         </div>
 
-        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] p-6 hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="composite-materials">
-          <div class="w-12 h-12 rounded-xl bg-crimson/15 border border-crimson/25 flex items-center justify-center mb-4 text-crimson group-hover:bg-crimson group-hover:text-white group-hover:shadow-[0_0_16px_rgba(230,57,86,0.4)] transition-all duration-300">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 01-.211.896L4.72 20.55a1 1 0 00.9 1.45h12.76a1 1 0 00.9-1.45l-5.069-10.127A2 2 0 0114 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+        <!-- Advanced Composite Materials -->
+        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] overflow-hidden hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="composite-materials">
+          <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+            <div class="absolute inset-0" style="background: linear-gradient(135deg, #1a1a2e 0%, #1a2e1a 40%, #4ade80 100%);"></div>
+            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+              <g stroke="#4ade80" fill="#4ade80">
+                <circle cx="80" cy="50" r="3"/><circle cx="110" cy="35" r="3"/><circle cx="140" cy="50" r="3"/>
+                <circle cx="140" cy="80" r="3"/><circle cx="110" cy="95" r="3"/><circle cx="80" cy="80" r="3"/>
+                <circle cx="110" cy="65" r="4" opacity="0.4"/>
+                <line x1="80" y1="50" x2="110" y2="35" stroke-width="1" opacity="0.3"/>
+                <line x1="110" y1="35" x2="140" y2="50" stroke-width="1" opacity="0.3"/>
+                <line x1="140" y1="50" x2="140" y2="80" stroke-width="1" opacity="0.3"/>
+                <line x1="140" y1="80" x2="110" y2="95" stroke-width="1" opacity="0.3"/>
+                <line x1="110" y1="95" x2="80" y2="80" stroke-width="1" opacity="0.3"/>
+                <line x1="80" y1="80" x2="80" y2="50" stroke-width="1" opacity="0.3"/>
+                <circle cx="260" cy="40" r="2.5"/><circle cx="290" cy="25" r="2.5"/><circle cx="320" cy="40" r="2.5"/>
+                <circle cx="320" cy="70" r="2.5"/><circle cx="290" cy="85" r="2.5"/><circle cx="260" cy="70" r="2.5"/>
+                <line x1="260" y1="40" x2="290" y2="25" stroke-width="0.8" opacity="0.25"/>
+                <line x1="290" y1="25" x2="320" y2="40" stroke-width="0.8" opacity="0.25"/>
+                <line x1="320" y1="40" x2="320" y2="70" stroke-width="0.8" opacity="0.25"/>
+                <line x1="320" y1="70" x2="290" y2="85" stroke-width="0.8" opacity="0.25"/>
+                <line x1="290" y1="85" x2="260" y2="70" stroke-width="0.8" opacity="0.25"/>
+                <line x1="260" y1="70" x2="260" y2="40" stroke-width="0.8" opacity="0.25"/>
+              </g>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-2/60 to-transparent"></div>
+            <div class="absolute bottom-3 right-3 w-10 h-10 rounded-lg bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 01-.211.896L4.72 20.55a1 1 0 00.9 1.45h12.76a1 1 0 00.9-1.45l-5.069-10.127A2 2 0 0114 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+            </div>
           </div>
-          <h3 class="text-base font-semibold mb-2.5">Advanced Composite Materials</h3>
-          <p class="text-sm text-text-2 leading-relaxed mb-3.5">Synthesis of expanded graphite/paraffin composites achieving 3070% thermal conductivity improvement; graphene/epoxy composites with 44% enhancement.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag">Graphene</span><span class="tag">EG/PCM</span><span class="tag">Nanomaterials</span>
-          </div>
-        </div>
-
-        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] p-6 hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="stpv">
-          <div class="w-12 h-12 rounded-xl bg-crimson/15 border border-crimson/25 flex items-center justify-center mb-4 text-crimson group-hover:bg-crimson group-hover:text-white group-hover:shadow-[0_0_16px_rgba(230,57,86,0.4)] transition-all duration-300">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          </div>
-          <h3 class="text-base font-semibold mb-2.5">Solar Thermophotovoltaics (STPV)</h3>
-          <p class="text-sm text-text-2 leading-relaxed mb-3.5">MATLAB-based theoretical model and novel experimental setup using silica microspheres for precise 100 &mu;m gap maintenance, validated to &lt;5% deviation.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag">STPV</span><span class="tag">MATLAB</span><span class="tag">Radiation</span>
-          </div>
-        </div>
-
-        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] p-6 hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="phonon-transport">
-          <div class="w-12 h-12 rounded-xl bg-crimson/15 border border-crimson/25 flex items-center justify-center mb-4 text-crimson group-hover:bg-crimson group-hover:text-white group-hover:shadow-[0_0_16px_rgba(230,57,86,0.4)] transition-all duration-300">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a4.5 4.5 0 00-4.5 4.5C7.5 9 12 12 12 12s4.5-3 4.5-5.5A4.5 4.5 0 0012 2z" transform="rotate(0 12 12)"/><path d="M12 2a4.5 4.5 0 00-4.5 4.5C7.5 9 12 12 12 12s4.5-3 4.5-5.5A4.5 4.5 0 0012 2z" transform="rotate(120 12 12)"/><path d="M12 2a4.5 4.5 0 00-4.5 4.5C7.5 9 12 12 12 12s4.5-3 4.5-5.5A4.5 4.5 0 0012 2z" transform="rotate(240 12 12)"/></svg>
-          </div>
-          <h3 class="text-base font-semibold mb-2.5">First-Principles Phonon Transport</h3>
-          <p class="text-sm text-text-2 leading-relaxed mb-3.5">DFT simulations using Quantum ESPRESSO and Phonopy to investigate phonon thermal transport in GaN and BC&#8339;P, computing thermal conductivity of 162 Wm&#8315;&#185;K&#8315;&#185;.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag">DFT</span><span class="tag">Phonopy</span><span class="tag">Quantum ESPRESSO</span>
-          </div>
-        </div>
-
-        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] p-6 hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="fuel-cell">
-          <div class="w-12 h-12 rounded-xl bg-crimson/15 border border-crimson/25 flex items-center justify-center mb-4 text-crimson group-hover:bg-crimson group-hover:text-white group-hover:shadow-[0_0_16px_rgba(230,57,86,0.4)] transition-all duration-300">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3 class="text-base font-semibold mb-2.5">Fuel Cell System Upscaling</h3>
-          <p class="text-sm text-text-2 leading-relaxed mb-3.5">Testing and overhaul of 5 kWe diesel-powered fuel cell auto-reformer (DRDO-sponsored), with ASPEN-based scale-up plans to 30 kWe capacity.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag">Fuel Cells</span><span class="tag">ASPEN</span><span class="tag">Energy</span>
+          <div class="p-5">
+            <h3 class="text-base font-semibold mb-1">Advanced Composite Materials</h3>
+            <p class="text-xs text-[#4ade80] font-medium mb-2.5">Record-breaking polymer nanocomposites with 4030% thermal enhancement</p>
+            <p class="text-sm text-text-2 leading-relaxed mb-3.5">Synthesis of expanded graphite/paraffin composites achieving 3070% thermal conductivity improvement; graphene/epoxy composites with 44% enhancement.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag group-hover:border-crimson/50">Graphene</span><span class="tag group-hover:border-crimson/50">EG/PCM</span><span class="tag group-hover:border-crimson/50">Nanomaterials</span>
+            </div>
           </div>
         </div>
 
-        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] p-6 hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="iter-divertor">
-          <div class="w-12 h-12 rounded-xl bg-crimson/15 border border-crimson/25 flex items-center justify-center mb-4 text-crimson group-hover:bg-crimson group-hover:text-white group-hover:shadow-[0_0_16px_rgba(230,57,86,0.4)] transition-all duration-300">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 11-4 0V4a2 2 0 014 0z"/></svg>
+        <!-- Solar Thermophotovoltaics -->
+        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] overflow-hidden hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="stpv">
+          <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+            <div class="absolute inset-0" style="background: linear-gradient(135deg, #1a1a2e 0%, #2e2a1a 40%, #f59e0b 100%);"></div>
+            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+              <g stroke="#f59e0b" fill="none">
+                <circle cx="100" cy="80" r="8" stroke-width="2" opacity="0.3"/>
+                <circle cx="100" cy="80" r="20" stroke-width="1.5" opacity="0.22"/>
+                <circle cx="100" cy="80" r="35" stroke-width="1" opacity="0.15"/>
+                <circle cx="100" cy="80" r="55" stroke-width="0.8" opacity="0.1"/>
+                <circle cx="320" cy="60" r="6" stroke-width="1.5" opacity="0.2"/>
+                <circle cx="320" cy="60" r="18" stroke-width="1" opacity="0.14"/>
+                <circle cx="320" cy="60" r="32" stroke-width="0.8" opacity="0.09"/>
+                <line x1="108" y1="80" x2="160" y2="75" stroke-width="0.8" opacity="0.15"/>
+                <line x1="108" y1="73" x2="155" y2="55" stroke-width="0.8" opacity="0.12"/>
+                <line x1="108" y1="87" x2="155" y2="100" stroke-width="0.8" opacity="0.12"/>
+                <circle cx="170" cy="72" r="2" fill="#f59e0b" opacity="0.2"/>
+                <circle cx="240" cy="65" r="1.5" fill="#f59e0b" opacity="0.15"/>
+              </g>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-2/60 to-transparent"></div>
+            <div class="absolute bottom-3 right-3 w-10 h-10 rounded-lg bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
           </div>
-          <h3 class="text-base font-semibold mb-2.5">ITER Divertor Thermal Analysis</h3>
-          <p class="text-sm text-text-2 leading-relaxed mb-3.5">FEM modeling of high heat flux (&gt;10 MW/m&sup2;) divertor behavior in ANSYS APDL, achieving 30% better thermal uniformity through design optimization.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag">ANSYS APDL</span><span class="tag">FEM</span><span class="tag">Nuclear Fusion</span>
+          <div class="p-5">
+            <h3 class="text-base font-semibold mb-1">Solar Thermophotovoltaics (STPV)</h3>
+            <p class="text-xs text-[#f59e0b] font-medium mb-2.5">Near-field radiative heat transfer with validated theoretical model</p>
+            <p class="text-sm text-text-2 leading-relaxed mb-3.5">MATLAB-based theoretical model and novel experimental setup using silica microspheres for precise 100 &mu;m gap maintenance, validated to &lt;5% deviation.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag group-hover:border-crimson/50">STPV</span><span class="tag group-hover:border-crimson/50">MATLAB</span><span class="tag group-hover:border-crimson/50">Radiation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- First-Principles Phonon Transport -->
+        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] overflow-hidden hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="phonon-transport">
+          <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+            <div class="absolute inset-0" style="background: linear-gradient(135deg, #1a1a2e 0%, #1a2e2e 40%, #06b6d4 100%);"></div>
+            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+              <g stroke="#06b6d4" fill="#06b6d4">
+                <circle cx="90" cy="60" r="5" opacity="0.25"/><circle cx="140" cy="40" r="4" opacity="0.2"/>
+                <circle cx="130" cy="90" r="3.5" opacity="0.2"/><circle cx="60" cy="90" r="3" opacity="0.15"/>
+                <line x1="90" y1="60" x2="140" y2="40" stroke-width="1.5" opacity="0.2"/>
+                <line x1="90" y1="60" x2="130" y2="90" stroke-width="1.5" opacity="0.2"/>
+                <line x1="90" y1="60" x2="60" y2="90" stroke-width="1" opacity="0.15"/>
+                <circle cx="280" cy="70" r="4.5" opacity="0.22"/><circle cx="320" cy="45" r="3.5" opacity="0.18"/>
+                <circle cx="340" cy="85" r="3" opacity="0.15"/><circle cx="260" cy="100" r="3" opacity="0.13"/>
+                <line x1="280" y1="70" x2="320" y2="45" stroke-width="1.2" opacity="0.18"/>
+                <line x1="280" y1="70" x2="340" y2="85" stroke-width="1.2" opacity="0.15"/>
+                <line x1="280" y1="70" x2="260" y2="100" stroke-width="1" opacity="0.12"/>
+                <circle cx="200" cy="30" r="2" opacity="0.1"/><circle cx="210" cy="130" r="2.5" opacity="0.1"/>
+              </g>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-2/60 to-transparent"></div>
+            <div class="absolute bottom-3 right-3 w-10 h-10 rounded-lg bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a4.5 4.5 0 00-4.5 4.5C7.5 9 12 12 12 12s4.5-3 4.5-5.5A4.5 4.5 0 0012 2z" transform="rotate(0 12 12)"/><path d="M12 2a4.5 4.5 0 00-4.5 4.5C7.5 9 12 12 12 12s4.5-3 4.5-5.5A4.5 4.5 0 0012 2z" transform="rotate(120 12 12)"/><path d="M12 2a4.5 4.5 0 00-4.5 4.5C7.5 9 12 12 12 12s4.5-3 4.5-5.5A4.5 4.5 0 0012 2z" transform="rotate(240 12 12)"/></svg>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold mb-1">First-Principles Phonon Transport</h3>
+            <p class="text-xs text-[#06b6d4] font-medium mb-2.5">DFT-computed thermal conductivity of hexagonal BC&#8322;P</p>
+            <p class="text-sm text-text-2 leading-relaxed mb-3.5">DFT simulations using Quantum ESPRESSO and Phonopy to investigate phonon thermal transport in GaN and BC&#8339;P, computing thermal conductivity of 162 Wm&#8315;&#185;K&#8315;&#185;.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag group-hover:border-crimson/50">DFT</span><span class="tag group-hover:border-crimson/50">Phonopy</span><span class="tag group-hover:border-crimson/50">Quantum ESPRESSO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fuel Cell System Upscaling -->
+        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] overflow-hidden hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="fuel-cell">
+          <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+            <img src="/assets/projects/fuel-cell-rig.jpg" alt="Fuel cell test rig" class="w-full h-full object-cover opacity-60 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-2 via-surface-2/30 to-transparent"></div>
+            <div class="absolute bottom-3 right-3 w-10 h-10 rounded-lg bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold mb-1">Fuel Cell System Upscaling</h3>
+            <p class="text-xs text-[#ef4444] font-medium mb-2.5">5 kWe to 30 kWe diesel autothermal reformer upscaling</p>
+            <p class="text-sm text-text-2 leading-relaxed mb-3.5">Testing and overhaul of 5 kWe diesel-powered fuel cell auto-reformer (DRDO-sponsored), with ASPEN-based scale-up plans to 30 kWe capacity.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag group-hover:border-crimson/50">Fuel Cells</span><span class="tag group-hover:border-crimson/50">ASPEN</span><span class="tag group-hover:border-crimson/50">Energy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITER Divertor Thermal Analysis -->
+        <div class="research-card fade-in bg-surface-2/50 backdrop-blur-sm border border-border/60 rounded-[10px] overflow-hidden hover:border-crimson/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(230,57,86,0.15)] transition-all duration-300 group" data-project="iter-divertor">
+          <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+            <div class="absolute inset-0" style="background: linear-gradient(135deg, #1a1a2e 0%, #1a1a3e 40%, #8b5cf6 100%);"></div>
+            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+              <g fill="#8b5cf6">
+                <rect x="15" y="10" width="20" height="16" rx="2" opacity="0.06"/>
+                <rect x="40" y="10" width="20" height="16" rx="2" opacity="0.08"/>
+                <rect x="65" y="10" width="20" height="16" rx="2" opacity="0.1"/>
+                <rect x="90" y="10" width="20" height="16" rx="2" opacity="0.12"/>
+                <rect x="115" y="10" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="140" y="10" width="20" height="16" rx="2" opacity="0.16"/>
+                <rect x="165" y="10" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="190" y="10" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="215" y="10" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="240" y="10" width="20" height="16" rx="2" opacity="0.16"/>
+                <rect x="265" y="10" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="290" y="10" width="20" height="16" rx="2" opacity="0.12"/>
+                <rect x="315" y="10" width="20" height="16" rx="2" opacity="0.1"/>
+                <rect x="340" y="10" width="20" height="16" rx="2" opacity="0.08"/>
+                <rect x="365" y="10" width="20" height="16" rx="2" opacity="0.06"/>
+                <rect x="15" y="30" width="20" height="16" rx="2" opacity="0.07"/>
+                <rect x="40" y="30" width="20" height="16" rx="2" opacity="0.1"/>
+                <rect x="65" y="30" width="20" height="16" rx="2" opacity="0.12"/>
+                <rect x="90" y="30" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="115" y="30" width="20" height="16" rx="2" opacity="0.16"/>
+                <rect x="140" y="30" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="165" y="30" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="190" y="30" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="215" y="30" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="240" y="30" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="265" y="30" width="20" height="16" rx="2" opacity="0.16"/>
+                <rect x="290" y="30" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="315" y="30" width="20" height="16" rx="2" opacity="0.1"/>
+                <rect x="340" y="30" width="20" height="16" rx="2" opacity="0.07"/>
+                <rect x="15" y="50" width="20" height="16" rx="2" opacity="0.08"/>
+                <rect x="40" y="50" width="20" height="16" rx="2" opacity="0.11"/>
+                <rect x="65" y="50" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="90" y="50" width="20" height="16" rx="2" opacity="0.16"/>
+                <rect x="115" y="50" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="140" y="50" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="165" y="50" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="190" y="50" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="215" y="50" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="240" y="50" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="265" y="50" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="290" y="50" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="315" y="50" width="20" height="16" rx="2" opacity="0.11"/>
+                <rect x="340" y="50" width="20" height="16" rx="2" opacity="0.08"/>
+                <rect x="15" y="70" width="20" height="16" rx="2" opacity="0.07"/>
+                <rect x="40" y="70" width="20" height="16" rx="2" opacity="0.1"/>
+                <rect x="65" y="70" width="20" height="16" rx="2" opacity="0.12"/>
+                <rect x="90" y="70" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="115" y="70" width="20" height="16" rx="2" opacity="0.16"/>
+                <rect x="140" y="70" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="165" y="70" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="190" y="70" width="20" height="16" rx="2" opacity="0.2"/>
+                <rect x="215" y="70" width="20" height="16" rx="2" opacity="0.18"/>
+                <rect x="240" y="70" width="20" height="16" rx="2" opacity="0.16"/>
+                <rect x="265" y="70" width="20" height="16" rx="2" opacity="0.14"/>
+                <rect x="290" y="70" width="20" height="16" rx="2" opacity="0.12"/>
+                <rect x="315" y="70" width="20" height="16" rx="2" opacity="0.1"/>
+                <rect x="340" y="70" width="20" height="16" rx="2" opacity="0.07"/>
+                <ellipse cx="200" cy="55" rx="60" ry="30" fill="none" stroke="#8b5cf6" stroke-width="0.8" opacity="0.15"/>
+                <ellipse cx="200" cy="55" rx="100" ry="50" fill="none" stroke="#8b5cf6" stroke-width="0.5" opacity="0.08"/>
+              </g>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-2/60 to-transparent"></div>
+            <div class="absolute bottom-3 right-3 w-10 h-10 rounded-lg bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 11-4 0V4a2 2 0 014 0z"/></svg>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold mb-1">ITER Divertor Thermal Analysis</h3>
+            <p class="text-xs text-[#8b5cf6] font-medium mb-2.5">FEM modeling of extreme heat flux divertor components</p>
+            <p class="text-sm text-text-2 leading-relaxed mb-3.5">FEM modeling of high heat flux (&gt;10 MW/m&sup2;) divertor behavior in ANSYS APDL, achieving 30% better thermal uniformity through design optimization.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tag group-hover:border-crimson/50">ANSYS APDL</span><span class="tag group-hover:border-crimson/50">FEM</span><span class="tag group-hover:border-crimson/50">Nuclear Fusion</span>
+            </div>
           </div>
         </div>
 

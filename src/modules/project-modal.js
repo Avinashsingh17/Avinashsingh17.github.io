@@ -7,6 +7,12 @@ const projectData = {
     affiliation: 'Micro/Nano Heat Transfer Lab, University of Oklahoma',
     advisor: 'Prof. Jivtesh Garg',
     tags: ['BTMS', 'CPCM', 'Heat Transfer', 'SolidWorks', 'GD&T'],
+    tagline: 'Hybrid cooling achieving automotive-grade thermal uniformity',
+    banner: {
+      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 40%, #e63956 100%)',
+      pattern: 'thermal-waves',
+      accentColor: '#e63956',
+    },
     highlights: [
       { value: '<2°C', label: 'Temperature Uniformity (ΔT)' },
       { value: '4', label: 'Cooling Configs Tested' },
@@ -39,6 +45,12 @@ const projectData = {
     affiliation: 'Micro/Nano Heat Transfer Lab, University of Oklahoma',
     advisor: 'Prof. Jivtesh Garg',
     tags: ['Graphene', 'EG/PCM', 'Nanomaterials', 'Raman', 'XRD', 'SEM', 'EMT'],
+    tagline: 'Record-breaking polymer nanocomposites with 4030% thermal enhancement',
+    banner: {
+      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #1a2e1a 40%, #4ade80 100%)',
+      pattern: 'crystalline-lattice',
+      accentColor: '#4ade80',
+    },
     highlights: [
       { value: '9.5 W/mK', label: 'Peak Thermal Conductivity' },
       { value: '4030%', label: 'Enhancement over Pure PEI' },
@@ -80,6 +92,12 @@ const projectData = {
     affiliation: 'Nano-Engineered Thermal Radiation Group, Arizona State University',
     advisor: 'Prof. Liping Wang',
     tags: ['STPV', 'MATLAB', 'Radiation', 'Optics', 'GaSb'],
+    tagline: 'Near-field radiative heat transfer with validated theoretical model',
+    banner: {
+      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #2e2a1a 40%, #f59e0b 100%)',
+      pattern: 'wave-radiation',
+      accentColor: '#f59e0b',
+    },
     highlights: [
       { value: '100 μm', label: 'Precision Gap Control' },
       { value: '<5%', label: 'Theory vs. Experiment Deviation' },
@@ -112,6 +130,12 @@ const projectData = {
     affiliation: 'Micro/Nano Heat Transfer Lab, University of Oklahoma',
     advisor: 'Prof. Jivtesh Garg',
     tags: ['DFT', 'Phonopy', 'Quantum ESPRESSO', 'PBTE', 'HPC'],
+    tagline: 'DFT-computed thermal conductivity of hexagonal BC₂P',
+    banner: {
+      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #1a2e2e 40%, #06b6d4 100%)',
+      pattern: 'molecular-structure',
+      accentColor: '#06b6d4',
+    },
     highlights: [
       { value: '162 W/mK', label: 'Thermal Conductivity (⊥ c-axis)' },
       { value: '30.1%', label: 'Optical Phonon Contribution' },
@@ -150,6 +174,13 @@ const projectData = {
     affiliation: 'IIT Gandhinagar, Mechanical Engineering Department',
     advisor: 'Faculty Advisor, IIT Gandhinagar',
     tags: ['Fuel Cells', 'ASPEN', 'P&ID', 'GC', 'CAD'],
+    tagline: '5 kWe to 30 kWe diesel autothermal reformer upscaling',
+    banner: {
+      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #2e1a1a 40%, #ef4444 100%)',
+      pattern: 'flow-diagram',
+      accentColor: '#ef4444',
+      heroImage: '/assets/projects/fuel-cell-rig.jpg',
+    },
     highlights: [
       { value: '~25%', label: 'H₂ Mole Fraction Yield' },
       { value: '5→30 kWe', label: 'Upscaling Target' },
@@ -192,6 +223,12 @@ const projectData = {
     affiliation: 'Institute for Plasma Research (IPR), Dept. of Atomic Energy, India',
     advisor: 'Mr. Vinay Menon, Scientist SD',
     tags: ['ANSYS APDL', 'FEM', 'ITER', 'Nuclear Fusion', 'Swirl Flow'],
+    tagline: 'FEM modeling of extreme heat flux divertor components',
+    banner: {
+      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #1a1a3e 40%, #8b5cf6 100%)',
+      pattern: 'heatmap-grid',
+      accentColor: '#8b5cf6',
+    },
     highlights: [
       { value: '28+ MW/m²', label: 'Peak Heat Flux Tested' },
       { value: '~983°C', label: 'Max Surface Temperature' },
@@ -225,44 +262,313 @@ const projectData = {
   },
 };
 
+// ===== SVG BANNER PATTERN GENERATOR =====
+function generateBannerSVG(pattern, color) {
+  const patterns = {
+    'thermal-waves': `
+      <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+        <path d="M0,80 C50,40 100,120 150,80 C200,40 250,120 300,80 C350,40 400,120 450,80" fill="none" stroke="${color}" stroke-width="2" opacity="0.3"/>
+        <path d="M-20,100 C30,60 80,140 130,100 C180,60 230,140 280,100 C330,60 380,140 430,100" fill="none" stroke="${color}" stroke-width="1.5" opacity="0.18"/>
+        <path d="M-10,55 C40,15 90,95 140,55 C190,15 240,95 290,55 C340,15 390,95 440,55" fill="none" stroke="${color}" stroke-width="1.5" opacity="0.18"/>
+        <path d="M0,130 C60,100 100,150 160,125 C220,100 260,150 320,125 C380,100 400,140 420,130" fill="none" stroke="${color}" stroke-width="1" opacity="0.1"/>
+        <circle cx="80" cy="70" r="2" fill="${color}" opacity="0.25"/><circle cx="200" cy="90" r="2.5" fill="${color}" opacity="0.2"/>
+        <circle cx="320" cy="60" r="1.5" fill="${color}" opacity="0.2"/><circle cx="150" cy="120" r="2" fill="${color}" opacity="0.15"/>
+      </svg>`,
+
+    'crystalline-lattice': `
+      <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+        <g stroke="${color}" fill="${color}">
+          <!-- Hexagonal cluster 1 -->
+          <circle cx="80" cy="50" r="3"/><circle cx="110" cy="35" r="3"/><circle cx="140" cy="50" r="3"/>
+          <circle cx="140" cy="80" r="3"/><circle cx="110" cy="95" r="3"/><circle cx="80" cy="80" r="3"/>
+          <circle cx="110" cy="65" r="4" opacity="0.4"/>
+          <line x1="80" y1="50" x2="110" y2="35" stroke-width="1" opacity="0.3"/>
+          <line x1="110" y1="35" x2="140" y2="50" stroke-width="1" opacity="0.3"/>
+          <line x1="140" y1="50" x2="140" y2="80" stroke-width="1" opacity="0.3"/>
+          <line x1="140" y1="80" x2="110" y2="95" stroke-width="1" opacity="0.3"/>
+          <line x1="110" y1="95" x2="80" y2="80" stroke-width="1" opacity="0.3"/>
+          <line x1="80" y1="80" x2="80" y2="50" stroke-width="1" opacity="0.3"/>
+          <line x1="80" y1="50" x2="110" y2="65" stroke-width="0.8" opacity="0.2"/>
+          <line x1="110" y1="35" x2="110" y2="65" stroke-width="0.8" opacity="0.2"/>
+          <line x1="140" y1="50" x2="110" y2="65" stroke-width="0.8" opacity="0.2"/>
+          <!-- Hexagonal cluster 2 -->
+          <circle cx="260" cy="40" r="2.5"/><circle cx="290" cy="25" r="2.5"/><circle cx="320" cy="40" r="2.5"/>
+          <circle cx="320" cy="70" r="2.5"/><circle cx="290" cy="85" r="2.5"/><circle cx="260" cy="70" r="2.5"/>
+          <line x1="260" y1="40" x2="290" y2="25" stroke-width="0.8" opacity="0.25"/>
+          <line x1="290" y1="25" x2="320" y2="40" stroke-width="0.8" opacity="0.25"/>
+          <line x1="320" y1="40" x2="320" y2="70" stroke-width="0.8" opacity="0.25"/>
+          <line x1="320" y1="70" x2="290" y2="85" stroke-width="0.8" opacity="0.25"/>
+          <line x1="290" y1="85" x2="260" y2="70" stroke-width="0.8" opacity="0.25"/>
+          <line x1="260" y1="70" x2="260" y2="40" stroke-width="0.8" opacity="0.25"/>
+          <!-- Scattered nodes -->
+          <circle cx="200" cy="130" r="2" opacity="0.15"/><circle cx="350" cy="120" r="1.5" opacity="0.12"/>
+          <circle cx="50" cy="120" r="1.5" opacity="0.12"/><circle cx="180" cy="30" r="2" opacity="0.15"/>
+          <line x1="140" y1="80" x2="180" y2="100" stroke-width="0.6" opacity="0.12" stroke-dasharray="4 4"/>
+          <line x1="260" y1="70" x2="220" y2="100" stroke-width="0.6" opacity="0.12" stroke-dasharray="4 4"/>
+        </g>
+      </svg>`,
+
+    'wave-radiation': `
+      <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+        <g stroke="${color}" fill="none">
+          <!-- Concentric circles - emitter -->
+          <circle cx="100" cy="80" r="8" stroke-width="2" opacity="0.3"/>
+          <circle cx="100" cy="80" r="20" stroke-width="1.5" opacity="0.22"/>
+          <circle cx="100" cy="80" r="35" stroke-width="1" opacity="0.15"/>
+          <circle cx="100" cy="80" r="55" stroke-width="0.8" opacity="0.1"/>
+          <circle cx="100" cy="80" r="78" stroke-width="0.5" opacity="0.06"/>
+          <!-- Concentric circles - secondary -->
+          <circle cx="320" cy="60" r="6" stroke-width="1.5" opacity="0.2"/>
+          <circle cx="320" cy="60" r="18" stroke-width="1" opacity="0.14"/>
+          <circle cx="320" cy="60" r="32" stroke-width="0.8" opacity="0.09"/>
+          <circle cx="320" cy="60" r="50" stroke-width="0.5" opacity="0.05"/>
+          <!-- Wave rays -->
+          <line x1="108" y1="80" x2="160" y2="75" stroke-width="0.8" opacity="0.15"/>
+          <line x1="108" y1="73" x2="155" y2="55" stroke-width="0.8" opacity="0.12"/>
+          <line x1="108" y1="87" x2="155" y2="100" stroke-width="0.8" opacity="0.12"/>
+          <!-- Photon dots -->
+          <circle cx="170" cy="72" r="2" fill="${color}" opacity="0.2"/>
+          <circle cx="240" cy="65" r="1.5" fill="${color}" opacity="0.15"/>
+          <circle cx="200" cy="100" r="1.5" fill="${color}" opacity="0.12"/>
+        </g>
+      </svg>`,
+
+    'molecular-structure': `
+      <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+        <g stroke="${color}" fill="${color}">
+          <!-- Molecule cluster 1 -->
+          <circle cx="90" cy="60" r="5" opacity="0.25"/><circle cx="140" cy="40" r="4" opacity="0.2"/>
+          <circle cx="130" cy="90" r="3.5" opacity="0.2"/><circle cx="60" cy="90" r="3" opacity="0.15"/>
+          <line x1="90" y1="60" x2="140" y2="40" stroke-width="1.5" opacity="0.2"/>
+          <line x1="90" y1="60" x2="130" y2="90" stroke-width="1.5" opacity="0.2"/>
+          <line x1="90" y1="60" x2="60" y2="90" stroke-width="1" opacity="0.15"/>
+          <!-- Molecule cluster 2 -->
+          <circle cx="280" cy="70" r="4.5" opacity="0.22"/><circle cx="320" cy="45" r="3.5" opacity="0.18"/>
+          <circle cx="340" cy="85" r="3" opacity="0.15"/><circle cx="260" cy="100" r="3" opacity="0.13"/>
+          <circle cx="310" cy="110" r="2.5" opacity="0.12"/>
+          <line x1="280" y1="70" x2="320" y2="45" stroke-width="1.2" opacity="0.18"/>
+          <line x1="280" y1="70" x2="340" y2="85" stroke-width="1.2" opacity="0.15"/>
+          <line x1="280" y1="70" x2="260" y2="100" stroke-width="1" opacity="0.12"/>
+          <line x1="340" y1="85" x2="310" y2="110" stroke-width="0.8" opacity="0.1"/>
+          <!-- Scattered atoms -->
+          <circle cx="200" cy="30" r="2" opacity="0.1"/><circle cx="380" cy="130" r="2" opacity="0.08"/>
+          <circle cx="30" cy="40" r="1.5" opacity="0.08"/><circle cx="210" cy="130" r="2.5" opacity="0.1"/>
+          <!-- Dashed bonds -->
+          <line x1="140" y1="40" x2="200" y2="30" stroke-width="0.6" opacity="0.08" stroke-dasharray="4 3"/>
+          <line x1="130" y1="90" x2="210" y2="130" stroke-width="0.6" opacity="0.08" stroke-dasharray="4 3"/>
+        </g>
+      </svg>`,
+
+    'flow-diagram': `
+      <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+        <defs><marker id="arrow" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="${color}" opacity="0.3"/></marker></defs>
+        <g stroke="${color}">
+          <!-- Flow lines -->
+          <line x1="30" y1="50" x2="120" y2="50" stroke-width="1.5" opacity="0.2" marker-end="url(#arrow)"/>
+          <line x1="140" y1="50" x2="230" y2="50" stroke-width="1.5" opacity="0.2" marker-end="url(#arrow)"/>
+          <line x1="250" y1="50" x2="340" y2="50" stroke-width="1.5" opacity="0.2" marker-end="url(#arrow)"/>
+          <line x1="30" y1="100" x2="120" y2="100" stroke-width="1" opacity="0.14" marker-end="url(#arrow)"/>
+          <line x1="140" y1="100" x2="230" y2="100" stroke-width="1" opacity="0.14" marker-end="url(#arrow)"/>
+          <line x1="250" y1="100" x2="340" y2="100" stroke-width="1" opacity="0.14" marker-end="url(#arrow)"/>
+          <!-- Process boxes -->
+          <rect x="120" y="38" width="20" height="24" rx="3" fill="${color}" opacity="0.12" stroke-width="0.8" opacity="0.2"/>
+          <rect x="230" y="38" width="20" height="24" rx="3" fill="${color}" opacity="0.1" stroke-width="0.8" opacity="0.18"/>
+          <rect x="340" y="38" width="20" height="24" rx="3" fill="${color}" opacity="0.08" stroke-width="0.8" opacity="0.15"/>
+          <!-- Vertical connectors -->
+          <line x1="130" y1="62" x2="130" y2="100" stroke-width="0.8" opacity="0.12" stroke-dasharray="3 3"/>
+          <line x1="240" y1="62" x2="240" y2="100" stroke-width="0.8" opacity="0.12" stroke-dasharray="3 3"/>
+          <!-- Labels/dots -->
+          <circle cx="60" cy="50" r="2" fill="${color}" opacity="0.15"/>
+          <circle cx="180" cy="50" r="2" fill="${color}" opacity="0.12"/>
+          <circle cx="290" cy="50" r="2" fill="${color}" opacity="0.1"/>
+          <circle cx="60" cy="100" r="1.5" fill="${color}" opacity="0.1"/>
+          <circle cx="180" cy="100" r="1.5" fill="${color}" opacity="0.08"/>
+        </g>
+      </svg>`,
+
+    'heatmap-grid': `
+      <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full banner-svg" preserveAspectRatio="xMidYMid slice">
+        <g fill="${color}">
+          <!-- Heatmap grid cells with varying opacity -->
+          ${Array.from({length: 8}, (_, row) =>
+            Array.from({length: 16}, (_, col) => {
+              const cx = col * 25 + 12;
+              const cy = row * 20 + 10;
+              const dist = Math.sqrt(Math.pow((cx - 200) / 200, 2) + Math.pow((cy - 80) / 80, 2));
+              const opacity = Math.max(0.03, 0.2 * (1 - dist));
+              return `<rect x="${cx - 10}" y="${cy - 8}" width="20" height="16" rx="2" opacity="${opacity.toFixed(3)}"/>`;
+            }).join('')
+          ).join('')}
+          <!-- Isothermal contour lines -->
+          <ellipse cx="200" cy="80" rx="60" ry="35" fill="none" stroke="${color}" stroke-width="0.8" opacity="0.15"/>
+          <ellipse cx="200" cy="80" rx="100" ry="55" fill="none" stroke="${color}" stroke-width="0.5" opacity="0.08"/>
+        </g>
+      </svg>`,
+  };
+  return patterns[pattern] || '';
+}
+
+// ===== GENERATE CARD BANNER HTML =====
+function generateCardBannerHTML(banner) {
+  if (!banner) return '';
+  if (banner.heroImage) {
+    return `
+      <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+        <img src="${banner.heroImage}" alt="" class="w-full h-full object-cover opacity-60 transition-transform duration-500" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-2 via-surface-2/30 to-transparent"></div>
+      </div>`;
+  }
+  return `
+    <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
+      <div class="absolute inset-0" style="background: ${banner.gradient};"></div>
+      ${generateBannerSVG(banner.pattern, banner.accentColor)}
+      <div class="absolute inset-0 bg-gradient-to-t from-surface-2/60 to-transparent"></div>
+    </div>`;
+}
+
+// ===== GENERATE MODAL BANNER HTML =====
+function generateModalBannerHTML(banner) {
+  if (!banner) return '';
+  if (banner.heroImage) {
+    return `
+      <img src="${banner.heroImage}" alt="" class="w-full h-full object-cover opacity-50" />
+      <div class="absolute inset-0 bg-gradient-to-t from-surface-2 via-surface-2/50 to-transparent"></div>`;
+  }
+  return `
+    <div class="absolute inset-0" style="background: ${banner.gradient};"></div>
+    ${generateBannerSVG(banner.pattern, banner.accentColor)}
+    <div class="absolute inset-0 bg-gradient-to-t from-surface-2/70 to-transparent"></div>`;
+}
+
 export function initProjectModals() {
+  // Create modal
   const modal = document.createElement('div');
   modal.id = 'project-modal';
   modal.className = 'fixed inset-0 z-[2000] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300';
   modal.innerHTML = `
     <div class="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>
-    <div class="modal-panel relative w-[92vw] max-w-[800px] max-h-[88vh] bg-surface-2/95 backdrop-blur-xl border border-border/60 rounded-2xl shadow-[0_0_60px_rgba(230,57,86,0.15)] overflow-hidden scale-95 transition-transform duration-300">
+    <div class="modal-panel relative w-[94vw] max-w-[900px] max-h-[90vh] bg-surface-2/95 backdrop-blur-xl border border-border/60 rounded-2xl shadow-[0_0_60px_rgba(230,57,86,0.15)] overflow-hidden scale-95 transition-transform duration-300 flex flex-col">
+      <div id="modal-banner" class="relative w-full h-48 shrink-0 overflow-hidden max-[600px]:h-32"></div>
       <div class="modal-header sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-border/50 bg-surface-2/90 backdrop-blur-md">
         <h3 id="modal-title" class="text-lg font-bold pr-4 leading-snug"></h3>
         <button class="modal-close shrink-0 w-9 h-9 rounded-lg bg-bg/50 border border-border/50 flex items-center justify-center text-text-3 hover:text-crimson hover:border-crimson/40 transition-all duration-200" data-close aria-label="Close">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
-      <div id="modal-body" class="px-6 py-5 overflow-y-auto" style="max-height: calc(88vh - 64px);"></div>
+      <div id="modal-body" class="px-6 py-5 overflow-y-auto flex-1"></div>
     </div>
   `;
   document.body.appendChild(modal);
 
+  // Create lightbox
+  const lightbox = document.createElement('div');
+  lightbox.className = 'gallery-lightbox';
+  lightbox.id = 'gallery-lightbox';
+  lightbox.innerHTML = `
+    <button class="lightbox-close" aria-label="Close lightbox">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous image">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next image">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+    <img src="" alt="" />
+    <div class="lightbox-caption"></div>
+  `;
+  document.body.appendChild(lightbox);
+
+  // Lightbox state
+  let lightboxImages = [];
+  let lightboxIndex = 0;
+
+  function openLightbox(images, index) {
+    lightboxImages = images;
+    lightboxIndex = index;
+    updateLightbox();
+    lightbox.classList.add('active');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+  }
+
+  function updateLightbox() {
+    const img = lightbox.querySelector('img');
+    const caption = lightbox.querySelector('.lightbox-caption');
+    const current = lightboxImages[lightboxIndex];
+    img.src = current.src;
+    img.alt = current.caption;
+    caption.textContent = current.caption;
+    lightbox.querySelector('.lightbox-prev').style.display = lightboxImages.length > 1 ? '' : 'none';
+    lightbox.querySelector('.lightbox-next').style.display = lightboxImages.length > 1 ? '' : 'none';
+  }
+
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lightbox-prev').addEventListener('click', () => {
+    lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+    updateLightbox();
+  });
+  lightbox.querySelector('.lightbox-next').addEventListener('click', () => {
+    lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+    updateLightbox();
+  });
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Close handlers
   modal.querySelectorAll('[data-close]').forEach(el => {
     el.addEventListener('click', closeModal);
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+      if (lightbox.classList.contains('active')) {
+        closeLightbox();
+      } else {
+        closeModal();
+      }
+    }
+    if (lightbox.classList.contains('active')) {
+      if (e.key === 'ArrowLeft') {
+        lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+        updateLightbox();
+      }
+      if (e.key === 'ArrowRight') {
+        lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+        updateLightbox();
+      }
+    }
   });
 
+  // Delegate gallery image clicks to lightbox
+  modal.addEventListener('click', (e) => {
+    const wrapper = e.target.closest('.gallery-img-wrapper');
+    if (wrapper) {
+      const index = parseInt(wrapper.dataset.galleryIndex, 10);
+      const key = modal.dataset.currentProject;
+      const data = projectData[key];
+      if (data && data.images) {
+        openLightbox(data.images, index);
+      }
+    }
+  });
+
+  // Card click handlers
   document.querySelectorAll('.research-card[data-project]').forEach(card => {
     card.style.cursor = 'pointer';
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.addEventListener('click', () => {
       const key = card.getAttribute('data-project');
-      if (projectData[key]) openModal(projectData[key]);
+      if (projectData[key]) openModal(key);
     });
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         const key = card.getAttribute('data-project');
-        if (projectData[key]) openModal(projectData[key]);
+        if (projectData[key]) openModal(key);
       }
     });
   });
@@ -287,32 +593,50 @@ function buildImageGalleryHTML(images) {
   if (!images || !images.length) return '';
   return `
     <div class="mb-6">
-      <h4 class="text-sm font-semibold text-crimson uppercase tracking-widest mb-3">Visual Results</h4>
+      <h4 class="modal-section-title">Visual Results</h4>
       <div class="relative">
         <div class="gallery-track flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth" style="-webkit-overflow-scrolling: touch; scrollbar-width: thin;">
           ${images.map((img, i) => `
-            <div class="gallery-slide snap-start shrink-0 w-[85%] max-[600px]:w-[90%]">
-              <div class="rounded-lg overflow-hidden border border-border/40 bg-bg/40 cursor-pointer" onclick="this.querySelector('img').classList.toggle('max-h-[220px]'); this.querySelector('img').classList.toggle('max-h-[500px]');">
-                <img src="${img.src}" alt="${img.caption}" class="w-full max-h-[220px] object-contain transition-all duration-300" loading="lazy" />
+            <div class="gallery-slide snap-start shrink-0 w-[80%] max-[600px]:w-[90%]">
+              <div class="rounded-lg overflow-hidden border border-border/40 bg-bg/40 cursor-zoom-in gallery-img-wrapper hover:border-crimson/40 transition-colors duration-200" data-gallery-index="${i}">
+                <img src="${img.src}" alt="${img.caption}" class="w-full max-h-[220px] object-contain transition-transform duration-300 hover:scale-[1.02]" loading="lazy" />
               </div>
               <p class="text-xs text-text-3 mt-2 leading-relaxed italic">${img.caption}</p>
             </div>
           `).join('')}
         </div>
-        ${images.length > 1 ? '<p class="text-[0.65rem] text-text-3 mt-1 tracking-wide uppercase">Scroll to see more →</p>' : ''}
+        ${images.length > 1 ? '<p class="text-[0.65rem] text-text-3 mt-1 tracking-wide uppercase">Scroll to see more &rarr;</p>' : ''}
       </div>
     </div>
   `;
 }
 
-function openModal(data) {
+function openModal(projectKey) {
+  const data = projectData[projectKey];
+  if (!data) return;
+
   const modal = document.getElementById('project-modal');
   const title = document.getElementById('modal-title');
   const body = document.getElementById('modal-body');
+  const banner = document.getElementById('modal-banner');
 
+  modal.dataset.currentProject = projectKey;
   title.textContent = data.title;
 
-  let html = `
+  // Render banner
+  if (data.banner) {
+    banner.innerHTML = generateModalBannerHTML(data.banner);
+    banner.style.display = '';
+  } else {
+    banner.innerHTML = '';
+    banner.style.display = 'none';
+  }
+
+  // Build body content as case-study layout
+  let html = '';
+
+  // Metadata bar
+  html += `
     <div class="flex flex-wrap items-center gap-3 mb-4 text-sm text-text-3">
       <span class="font-mono text-xs bg-bg/50 border border-border/50 px-2 py-0.5 rounded">${data.period}</span>
       <span>${data.affiliation}</span>
@@ -323,49 +647,64 @@ function openModal(data) {
   // Highlight metrics
   html += buildHighlightsHTML(data.highlights);
 
-  // Overview
-  html += `<p class="text-text-2 leading-7 mb-6">${data.overview}</p>`;
+  // Overview section
+  html += `
+    <div class="mb-6">
+      <h4 class="modal-section-title">Overview</h4>
+      <p class="text-text-2 leading-7">${data.overview}</p>
+    </div>
+  `;
 
   // Image gallery (if available)
   html += buildImageGalleryHTML(data.images);
 
   // Objectives
   html += `
-    <h4 class="text-sm font-semibold text-crimson uppercase tracking-widest mb-3">Objectives</h4>
-    <ul class="mb-6 space-y-1.5">
-      ${data.objectives.map(o => `<li class="text-sm text-text-2 leading-relaxed pl-4 relative before:content-['▸'] before:absolute before:left-0 before:text-crimson before:text-xs">${o}</li>`).join('')}
-    </ul>
+    <div class="mb-6">
+      <h4 class="modal-section-title">Objectives</h4>
+      <ul class="space-y-1.5">
+        ${data.objectives.map(o => `<li class="modal-list-item">${o}</li>`).join('')}
+      </ul>
+    </div>
   `;
 
-  // Methods
+  // Methods & Tools
   html += `
-    <h4 class="text-sm font-semibold text-crimson uppercase tracking-widest mb-3">Methods & Approach</h4>
-    <ul class="mb-6 space-y-1.5">
-      ${data.methods.map(m => `<li class="text-sm text-text-2 leading-relaxed pl-4 relative before:content-['▸'] before:absolute before:left-0 before:text-crimson before:text-xs">${m}</li>`).join('')}
-    </ul>
+    <div class="mb-6">
+      <h4 class="modal-section-title">Methods & Tools</h4>
+      <ul class="space-y-1.5">
+        ${data.methods.map(m => `<li class="modal-list-item">${m}</li>`).join('')}
+      </ul>
+    </div>
   `;
 
-  // Results
+  // Key Results
   html += `
-    <h4 class="text-sm font-semibold text-crimson uppercase tracking-widest mb-3">Key Results</h4>
-    <ul class="mb-6 space-y-1.5">
-      ${data.results.map(r => `<li class="text-sm text-text-2 leading-relaxed pl-4 relative before:content-['▸'] before:absolute before:left-0 before:text-crimson before:text-xs">${r}</li>`).join('')}
-    </ul>
+    <div class="mb-6">
+      <h4 class="modal-section-title">Key Results</h4>
+      <ul class="space-y-1.5">
+        ${data.results.map(r => `<li class="modal-list-item">${r}</li>`).join('')}
+      </ul>
+    </div>
   `;
 
   // Significance
   html += `
-    <h4 class="text-sm font-semibold text-crimson uppercase tracking-widest mb-3">Significance</h4>
-    <p class="text-sm text-text-2 leading-relaxed mb-6">${data.significance}</p>
+    <div class="mb-6">
+      <h4 class="modal-section-title">Significance</h4>
+      <p class="text-sm text-text-2 leading-relaxed">${data.significance}</p>
+    </div>
   `;
 
   // Publications
   if (data.publications) {
     html += `
-      <h4 class="text-sm font-semibold text-crimson uppercase tracking-widest mb-3">Related Publications</h4>
-      <ul class="mb-4 space-y-2">
-        ${data.publications.map(p => `<li class="text-xs text-text-3 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-crimson">${p}</li>`).join('')}
-      </ul>
+      <div class="mb-6">
+        <h4 class="modal-section-title">Related Publications</h4>
+        <ul class="space-y-2">
+          ${data.publications.map(p => `<li class="text-xs text-text-3 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-crimson">${p}</li>`).join('')}
+        </ul>
+      </div>
     `;
   }
 
