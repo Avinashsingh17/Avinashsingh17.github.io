@@ -9,9 +9,9 @@ const projectData = {
     tags: ['BTMS', 'CPCM', 'Heat Transfer', 'SolidWorks'],
     tagline: 'Hybrid cooling achieving automotive-grade thermal uniformity',
     banner: {
-      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 40%, #e63956 100%)',
+      gradient: 'linear-gradient(135deg, #00D4AA22 0%, #0D1117 100%)',
       pattern: 'thermal-waves',
-      accentColor: '#e63956',
+      accentColor: '#00D4AA',
     },
     highlights: [
       { value: '<2°C', label: 'Temperature Uniformity (ΔT)' },
@@ -44,9 +44,9 @@ const projectData = {
     tags: ['Graphene', 'EG/PCM', 'Nanomaterials', 'Raman', 'XRD', 'SEM', 'EMT'],
     tagline: 'Record-breaking polymer nanocomposites with 4030% thermal enhancement',
     banner: {
-      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #1a2e1a 40%, #4ade80 100%)',
+      gradient: 'linear-gradient(135deg, #38BDF822 0%, #0D1117 100%)',
       pattern: 'crystalline-lattice',
-      accentColor: '#4ade80',
+      accentColor: '#38BDF8',
       heroImage: '/assets/projects/composite-1-fig4.jpeg',
     },
     images: [
@@ -100,9 +100,9 @@ const projectData = {
     tags: ['STPV', 'MATLAB', 'Radiation', 'Optics', 'GaSb'],
     tagline: 'Near-field radiative heat transfer with validated theoretical model',
     banner: {
-      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #2e2a1a 40%, #f59e0b 100%)',
+      gradient: 'linear-gradient(135deg, #F59E0B22 0%, #0D1117 100%)',
       pattern: 'wave-radiation',
-      accentColor: '#f59e0b',
+      accentColor: '#F59E0B',
       heroImage: '/assets/projects/stpv-lab-setup.jpg',
     },
     images: [
@@ -148,9 +148,9 @@ const projectData = {
     tags: ['DFT', 'Phonopy', 'Quantum ESPRESSO', 'PBTE', 'HPC'],
     tagline: 'DFT-computed thermal conductivity of hexagonal BC₂P',
     banner: {
-      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #1a2e2e 40%, #06b6d4 100%)',
+      gradient: 'linear-gradient(135deg, #818CF822 0%, #0D1117 100%)',
       pattern: 'molecular-structure',
-      accentColor: '#06b6d4',
+      accentColor: '#818CF8',
       heroImage: '/assets/projects/phonon-transport-fig1.png',
     },
     images: [
@@ -199,9 +199,9 @@ const projectData = {
     tags: ['Fuel Cells', 'ASPEN', 'P&ID', 'GC', 'CAD'],
     tagline: '5 kWe to 30 kWe diesel autothermal reformer upscaling',
     banner: {
-      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #2e1a1a 40%, #ef4444 100%)',
+      gradient: 'linear-gradient(135deg, #34D39922 0%, #0D1117 100%)',
       pattern: 'flow-diagram',
-      accentColor: '#ef4444',
+      accentColor: '#34D399',
       heroImage: '/assets/projects/fuel-cell-rig.jpg',
     },
     highlights: [
@@ -252,9 +252,9 @@ const projectData = {
     tags: ['ANSYS APDL', 'FEM', 'ITER', 'Nuclear Fusion', 'Swirl Flow'],
     tagline: 'FEM modeling of extreme heat flux divertor components',
     banner: {
-      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #1a1a3e 40%, #8b5cf6 100%)',
+      gradient: 'linear-gradient(135deg, #60A5FA22 0%, #0D1117 100%)',
       pattern: 'heatmap-grid',
-      accentColor: '#8b5cf6',
+      accentColor: '#60A5FA',
       heroImage: '/assets/projects/iter-divertor-fig32.jpeg',
     },
     images: [
@@ -487,7 +487,7 @@ export function initProjectModals() {
       <div id="modal-banner" class="relative w-full h-48 shrink-0 overflow-hidden max-[600px]:h-32"></div>
       <div class="modal-header sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-border/50 bg-surface-2">
         <h3 id="modal-title" class="text-lg font-bold pr-4 leading-snug"></h3>
-        <button class="modal-close shrink-0 w-9 h-9 rounded-lg bg-bg/50 border border-border/50 flex items-center justify-center text-text-3 hover:text-crimson hover:border-crimson/40 transition-all duration-200" data-close aria-label="Close">
+        <button class="modal-close shrink-0 w-9 h-9 rounded-lg bg-bg/50 border border-border/50 flex items-center justify-center text-text-3 hover:text-teal hover:border-teal/40 transition-all duration-200" data-close aria-label="Close">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
@@ -617,7 +617,7 @@ function buildHighlightsHTML(highlights) {
     <div class="grid grid-cols-${cols} gap-3 mb-6 max-[600px]:grid-cols-2">
       ${highlights.map(h => `
         <div class="text-center py-4 px-3 rounded-xl bg-bg/60 border border-border/40">
-          <div class="text-xl font-bold text-crimson leading-none mb-1.5">${h.value}</div>
+          <div class="text-xl font-bold text-teal leading-none mb-1.5">${h.value}</div>
           <div class="text-[0.7rem] text-text-3 uppercase tracking-wide leading-tight">${h.label}</div>
         </div>
       `).join('')}
@@ -634,7 +634,7 @@ function buildImageGalleryHTML(images) {
         <div class="gallery-track flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth" style="-webkit-overflow-scrolling: touch; scrollbar-width: thin;">
           ${images.map((img, i) => `
             <div class="gallery-slide snap-start shrink-0 w-[80%] max-[600px]:w-[90%]">
-              <div class="rounded-lg overflow-hidden border border-border/40 bg-bg/40 cursor-zoom-in gallery-img-wrapper hover:border-crimson/40 transition-colors duration-200" data-gallery-index="${i}">
+              <div class="rounded-lg overflow-hidden border border-border/40 bg-bg/40 cursor-zoom-in gallery-img-wrapper hover:border-teal/40 transition-colors duration-200" data-gallery-index="${i}">
                 <img src="${img.src}" alt="${img.caption}" class="w-full max-h-[220px] object-contain transition-transform duration-300 hover:scale-[1.02]" loading="lazy" />
               </div>
               <p class="text-xs text-text-3 mt-2 leading-relaxed italic">${img.caption}</p>
@@ -738,7 +738,7 @@ function openModal(projectKey) {
       <div class="mb-6">
         <h4 class="modal-section-title">Related Publications</h4>
         <ul class="space-y-2">
-          ${data.publications.map(p => `<li class="text-xs text-text-3 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-crimson">${p}</li>`).join('')}
+          ${data.publications.map(p => `<li class="text-xs text-text-3 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-teal">${p}</li>`).join('')}
         </ul>
       </div>
     `;
