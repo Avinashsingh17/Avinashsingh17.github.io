@@ -8,6 +8,7 @@ import { initScrollProgress } from './modules/scroll-progress.js';
 import { initBackToTop } from './modules/back-to-top.js';
 import { initCounters } from './modules/counter.js';
 import { initProjectModals } from './modules/project-modal.js';
+import { initSkillBars, initExpToggle } from './modules/skills-animation.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,4 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initCounters();
   initProjectModals();
+  initSkillBars();
+  initExpToggle();
 });

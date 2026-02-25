@@ -55,7 +55,11 @@
         <p class="font-mono text-[0.95rem] text-teal tracking-widest mb-2">Hello, I'm</p>
         <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold leading-[1.1] mb-2 tracking-tight">Avinash <span class="text-teal">Nayal</span></h1>
         <p class="text-lg font-medium text-text-2 mb-1">Ph.D. Candidate &middot; Mechanical Engineering</p>
-        <p class="text-[0.95rem] text-text-3 mb-5">University of Oklahoma</p>
+        <p class="text-[0.95rem] text-text-3 mb-3">University of Oklahoma</p>
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="availability-dot relative w-2.5 h-2.5 rounded-full bg-teal"></span>
+          <span class="text-xs text-teal font-medium tracking-wide">Open to Industry Positions &middot; 2025</span>
+        </div>
         <p class="text-base text-text-2 leading-7 max-w-[520px] mb-8">
           Researcher in <span class="text-teal font-medium">thermal management</span>, advanced materials, and energy systems.
           Experienced at Oak Ridge National Laboratory with 9+ peer-reviewed publications.
@@ -63,6 +67,10 @@
         </p>
         <div class="flex flex-wrap gap-3 mb-10 max-[480px]:flex-col max-[480px]:items-start">
           <a href="mailto:avinash.nayal@gmail.com" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-teal text-white border-2 border-teal hover:bg-teal-light hover:border-teal-light hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,212,170,0.4)] transition-all duration-300">Get In Touch</a>
+          <a href="/assets/Avinash_Nayal_CV.pdf" download class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-transparent text-teal border-2 border-teal hover:bg-teal hover:text-[#0D1117] hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,212,170,0.4)] transition-all duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
           <a href="#publications" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-transparent text-text-2 border-2 border-border hover:border-teal hover:text-teal hover:-translate-y-0.5 transition-all duration-300">Publications</a>
         </div>
         <div class="flex items-center gap-5 flex-wrap">
@@ -105,6 +113,34 @@
       <span class="block w-6 h-6 border-r-2 border-b-2 border-teal rotate-45"></span>
     </a>
   </section>
+
+  <!-- ===== KEY IMPACT NUMBERS ===== -->
+  <div class="bg-surface-2 border-t border-b border-teal/20 py-10 max-[480px]:py-7">
+    <div class="max-w-[1100px] mx-auto px-6">
+      <div class="flex justify-between items-center gap-6 flex-wrap max-[600px]:grid max-[600px]:grid-cols-2 max-[400px]:grid-cols-2 max-[600px]:gap-y-6 max-[600px]:gap-x-4">
+        <div class="text-center flex-1 min-w-[120px] fade-in">
+          <div class="text-[2.5rem] font-bold text-teal leading-none mb-1.5 font-mono">9</div>
+          <div class="text-xs text-text-3 uppercase tracking-wide leading-tight">Peer-Reviewed<br>Publications</div>
+        </div>
+        <div class="text-center flex-1 min-w-[120px] fade-in">
+          <div class="text-[2.5rem] font-bold text-teal leading-none mb-1.5 font-mono">3070%</div>
+          <div class="text-xs text-text-3 uppercase tracking-wide leading-tight">Thermal Conductivity<br>Enhancement</div>
+        </div>
+        <div class="text-center flex-1 min-w-[120px] fade-in">
+          <div class="text-[2.5rem] font-bold text-teal leading-none mb-1.5 font-mono">40%</div>
+          <div class="text-xs text-text-3 uppercase tracking-wide leading-tight">Analysis Cycle Time<br>Reduction (ORNL)</div>
+        </div>
+        <div class="text-center flex-1 min-w-[120px] fade-in">
+          <div class="text-[2.5rem] font-bold text-teal leading-none mb-1.5 font-mono">30%</div>
+          <div class="text-xs text-text-3 uppercase tracking-wide leading-tight">Thermal Uniformity<br>Improvement</div>
+        </div>
+        <div class="text-center flex-1 min-w-[120px] fade-in max-[600px]:col-span-2">
+          <div class="text-[2.5rem] font-bold text-teal leading-none mb-1.5 font-mono">7</div>
+          <div class="text-xs text-text-3 uppercase tracking-wide leading-tight">Scholarships<br>&amp; Fellowships</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== ABOUT ===== -->
   <section id="about" class="py-24 max-[480px]:py-16">
@@ -175,22 +211,26 @@
       <h2 class="section-title fade-in text-[clamp(1.8rem,4vw,2.4rem)] font-bold tracking-tight mb-3">Experience</h2>
       <div class="timeline relative pl-8 mt-10">
 
-        <!-- ORNL -->
+        <!-- ORNL (Featured) -->
         <div class="timeline-item relative mb-10 fade-in">
           <div class="timeline-dot"></div>
-          <div class="timeline-content bg-surface-2/60 backdrop-blur-sm border border-border/60 rounded-[10px] p-6 hover:border-teal/40 hover:shadow-[0_4px_24px_rgba(0,212,170,0.15)] transition-all duration-300">
+          <div class="timeline-content bg-surface-2/60 backdrop-blur-sm border border-border/60 border-l-[3px] border-l-[#F59E0B] rounded-[10px] p-6 hover:border-teal/40 hover:border-l-[#F59E0B] hover:shadow-[0_4px_24px_rgba(0,212,170,0.15)] transition-all duration-300">
             <div class="flex justify-between items-start gap-4 mb-3 flex-wrap max-md:flex-col">
               <div>
-                <h3 class="text-base font-semibold mb-1">GRO Intern - Materials Science & Technology</h3>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="text-base font-semibold">GRO Intern - Materials Science & Technology</h3>
+                  <span class="text-[0.65rem] font-semibold text-[#F59E0B] bg-[#F59E0B]/10 border border-[#F59E0B]/30 px-2 py-0.5 rounded-full whitespace-nowrap">&#11088; Featured</span>
+                </div>
                 <p class="text-teal text-sm font-medium">Oak Ridge National Laboratory (ORNL)</p>
               </div>
               <span class="font-mono text-xs text-text-3 whitespace-nowrap bg-bg/50 px-2 py-0.5 rounded border border-border/50 shrink-0">Jan 2025 - May 2025</span>
             </div>
             <ul class="timeline-bullets mb-3">
               <li>Investigated phonon thermal transport in energy-relevant materials using DFT (Quantum ESPRESSO, Phonopy)</li>
-              <li>Analyzed mechanical strain effects on thermal conductivity in GaN under mentorship of Dr. Lucas Lindsay</li>
-              <li>Developed Python post-processing framework that reduced analysis cycle time by <strong>40%</strong></li>
+              <li class="exp-extra hidden">Analyzed mechanical strain effects on thermal conductivity in GaN under mentorship of Dr. Lucas Lindsay</li>
+              <li class="exp-extra hidden">Developed Python post-processing framework that reduced analysis cycle time by <strong>40%</strong></li>
             </ul>
+            <button class="exp-toggle text-xs text-teal font-medium hover:text-teal-light transition-colors mb-3 cursor-pointer">Show more &darr;</button>
             <div class="flex flex-wrap gap-1.5">
               <span class="tag">DFT</span><span class="tag">Quantum ESPRESSO</span><span class="tag">Python</span><span class="tag">Phonopy</span>
             </div>
@@ -210,9 +250,10 @@
             </div>
             <ul class="timeline-bullets mb-3">
               <li>Designed Couette-shear extrusion tool with full GD&T drawings and BOM</li>
-              <li>Achieved uniform temperature control (&Delta;T &lt; 2&deg;C) across battery thermal modules</li>
-              <li>Led comparative testing of air, liquid, CPCM, and hybrid cooling systems for BTMS</li>
+              <li class="exp-extra hidden">Achieved uniform temperature control (&Delta;T &lt; 2&deg;C) across battery thermal modules</li>
+              <li class="exp-extra hidden">Led comparative testing of air, liquid, CPCM, and hybrid cooling systems for BTMS</li>
             </ul>
+            <button class="exp-toggle text-xs text-teal font-medium hover:text-teal-light transition-colors mb-3 cursor-pointer">Show more &darr;</button>
             <div class="flex flex-wrap gap-1.5">
               <span class="tag">BTMS</span><span class="tag">SolidWorks</span><span class="tag">CPCM</span><span class="tag">GD&T</span>
             </div>
@@ -253,9 +294,10 @@
             </div>
             <ul class="timeline-bullets mb-3">
               <li>Synthesized expandable graphite composites achieving <strong>3070%</strong> increase in thermal conductivity</li>
-              <li>Conducted first-principles study on hexagonal BC&#8339;P reporting 162 Wm&#8315;&#185;K&#8315;&#185; thermal conductivity</li>
-              <li>Mentored 2 junior researchers on thermal testing and data analysis</li>
+              <li class="exp-extra hidden">Conducted first-principles study on hexagonal BC&#8339;P reporting 162 Wm&#8315;&#185;K&#8315;&#185; thermal conductivity</li>
+              <li class="exp-extra hidden">Mentored 2 junior researchers on thermal testing and data analysis</li>
             </ul>
+            <button class="exp-toggle text-xs text-teal font-medium hover:text-teal-light transition-colors mb-3 cursor-pointer">Show more &darr;</button>
             <div class="flex flex-wrap gap-1.5">
               <span class="tag">Materials Synthesis</span><span class="tag">First-Principles</span><span class="tag">MATLAB</span>
             </div>
@@ -466,95 +508,122 @@
     <div class="max-w-[1100px] mx-auto px-6">
       <h2 class="section-title fade-in text-[clamp(1.8rem,4vw,2.4rem)] font-bold tracking-tight mb-3">Publications</h2>
       <p class="fade-in text-text-2 text-base mb-12 max-w-[560px]">9 peer-reviewed publications in materials science and thermal engineering journals</p>
-      <div class="mt-3">
+      <div class="mt-3 space-y-2">
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-[#F59E0B] border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">1</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Hydrogen-peroxide intercalated expanded graphite facilitates large enhancement in thermal conductivity</p>
             <p class="text-sm text-text-2 mb-1">Tarannum F., Danayat S., <strong>Nayal A.</strong>, et al.</p>
-            <p class="text-xs text-text-3 font-mono">Journal of Materials Research and Technology &middot; <span class="text-teal">2024</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Hydrogen-peroxide+intercalated+expanded+graphite+thermal+conductivity" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/30">Materials Research &amp; Tech</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2024</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Hydrogen-peroxide+intercalated+expanded+graphite+thermal+conductivity" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-cyan border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">2</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Thickness dependent thermal conductivity of strontium titanate thin films</p>
             <p class="text-sm text-text-2 mb-1">Annam R.S., Danayat S., <strong>Nayal A.</strong>, et al.</p>
-            <p class="text-xs text-text-3 font-mono">Journal of Vacuum Science & Technology A &middot; <span class="text-teal">2024</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Thickness+dependent+thermal+conductivity+strontium+titanate+thin+films" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-cyan/10 text-cyan border border-cyan/30">JVST-A</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2024</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Thickness+dependent+thermal+conductivity+strontium+titanate+thin+films" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-teal border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">3</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Role of four-phonon processes in thermal conductivity</p>
             <p class="text-sm text-text-2 mb-1">Danayat S., Tasnim Z., <strong>Nayal A.</strong>, Annam R., Garg J.</p>
-            <p class="text-xs text-text-3 font-mono">RSC Nanoscale &middot; <span class="text-teal">2024</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Role+of+four-phonon+processes+thermal+conductivity+Danayat" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-teal/10 text-teal border border-teal/30">RSC Nanoscale</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2024</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Role+of+four-phonon+processes+thermal+conductivity+Danayat" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-[#818CF8] border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">4</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Superior enhancement in thermal conductivity of epoxy/graphene nanocomposites through use of dimethylformamide</p>
             <p class="text-sm text-text-2 mb-1">Danayat S., <strong>Nayal A.</strong>, Tarannum F., Annam R., Muthaiah R., Garg J.</p>
-            <p class="text-xs text-text-3 font-mono">MethodsX, Vol. 11 &middot; <span class="text-teal">2023</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Superior+enhancement+thermal+conductivity+epoxy+graphene+nanocomposites+dimethylformamide" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-[#818CF8]/10 text-[#818CF8] border border-[#818CF8]/30">MethodsX</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2023</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Superior+enhancement+thermal+conductivity+epoxy+graphene+nanocomposites+dimethylformamide" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-[#F59E0B] border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">5</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Thermally expanded graphite polyetherimide composite with superior electrical and thermal conductivity</p>
             <p class="text-sm text-text-2 mb-1">Tarannum F., Danayat S., <strong>Nayal A.</strong>, et al.</p>
-            <p class="text-xs text-text-3 font-mono">Materials Chemistry and Physics &middot; <span class="text-teal">2023</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Thermally+expanded+graphite+polyetherimide+composite+electrical+thermal+conductivity" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/30">Materials Chem &amp; Phys</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2023</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Thermally+expanded+graphite+polyetherimide+composite+electrical+thermal+conductivity" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-[#34D399] border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">6</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Large Enhancement in Thermal Conductivity of Solvent-Cast Expanded Graphite/Polyetherimide Composites</p>
             <p class="text-sm text-text-2 mb-1">Tarannum F., Danayat S., <strong>Nayal A.</strong>, Muthaiah R., Annam R., Garg J.</p>
-            <p class="text-xs text-text-3 font-mono">Nanomaterials &middot; <span class="text-teal">2022</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Large+Enhancement+Thermal+Conductivity+Solvent-Cast+Expanded+Graphite+Polyetherimide" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/30">Nanomaterials</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2022</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Large+Enhancement+Thermal+Conductivity+Solvent-Cast+Expanded+Graphite+Polyetherimide" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-teal border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">7</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">The superior effect of edge functionalization relative to basal plane functionalization on thermal properties of graphene composites</p>
             <p class="text-sm text-text-2 mb-1">Muthaiah R., Tarannum F., Danayat S., Annam R., <strong>Nayal A.</strong>, Garg J.</p>
-            <p class="text-xs text-text-3 font-mono">Physical Chemistry Chemical Physics &middot; <span class="text-teal">2022</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=superior+effect+edge+functionalization+basal+plane+graphene+thermal+Muthaiah" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-teal/10 text-teal border border-teal/30">RSC PCCP</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2022</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=superior+effect+edge+functionalization+basal+plane+graphene+thermal+Muthaiah" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 border-b border-border/50 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-[#818CF8] border-b border-border/50 hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">8</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Expanded Graphite/Paraffin composite phase change materials: Effect of solvent and ultrasonication on thermal properties</p>
             <p class="text-sm text-text-2 mb-1"><strong>Nayal A.</strong>, Garg J.</p>
-            <p class="text-xs text-text-3 font-mono">APS March Meeting (Presentation) &middot; <span class="text-teal">2022</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Expanded+Graphite+Paraffin+composite+phase+change+materials+solvent+ultrasonication+Nayal" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-[#818CF8]/10 text-[#818CF8] border border-[#818CF8]/30">APS March Meeting</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2022</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Expanded+Graphite+Paraffin+composite+phase+change+materials+solvent+ultrasonication+Nayal" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
-        <div class="pub-item fade-in flex gap-5 py-5 hover:bg-teal/[0.06] hover:rounded-[10px] hover:px-3 transition-all duration-300">
+        <div class="pub-item fade-in flex gap-5 py-5 pl-4 border-l-[3px] border-l-teal hover:bg-teal/[0.04] rounded-r-[10px] transition-all duration-300">
           <span class="font-mono text-xs text-teal font-semibold w-6 shrink-0 pt-0.5">9</span>
           <div>
             <p class="font-medium text-[0.95rem] mb-1.5 leading-relaxed">Thermal Conductivity of Hexagonal BC&#8322;P - a First Principle Study</p>
             <p class="text-sm text-text-2 mb-1">Muthaiah R., Tarannum F., Annam R., <strong>Nayal A.</strong>, Danayat S., Garg J.</p>
-            <p class="text-xs text-text-3 font-mono">RSC Advances &middot; <span class="text-teal">2020</span></p>
-            <div class="flex flex-wrap gap-3 mt-2"><a href="https://scholar.google.com/scholar?q=Thermal+Conductivity+Hexagonal+BC2P+First+Principle+Study+Muthaiah" target="_blank" rel="noopener" class="pub-link">&nearr; Scholar</a></div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="journal-badge text-[0.65rem] font-semibold px-2 py-0.5 rounded-full bg-teal/10 text-teal border border-teal/30">RSC Advances</span>
+              <span class="text-xs text-text-3 font-mono"><span class="text-teal">2020</span></span>
+            </div>
+            <div class="flex flex-wrap gap-3"><a href="https://scholar.google.com/scholar?q=Thermal+Conductivity+Hexagonal+BC2P+First+Principle+Study+Muthaiah" target="_blank" rel="noopener" class="pub-link">Scholar &nearr;</a></div>
           </div>
         </div>
 
@@ -569,53 +638,47 @@
       <div class="grid grid-cols-2 gap-10 mt-10 max-[900px]:grid-cols-1 max-[900px]:gap-7">
 
         <div class="fade-in">
-          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-4">Simulation & Modeling</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="pill">ANSYS Fluent</span>
-            <span class="pill">ANSYS APDL</span>
-            <span class="pill">ANSYS Icepak</span>
-            <span class="pill">COMSOL</span>
-            <span class="pill">Quantum ESPRESSO</span>
-            <span class="pill">Phonopy</span>
-            <span class="pill">First-Principles DFT</span>
-            <span class="pill">FEA / CFD</span>
-            <span class="pill">EES</span>
+          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-5">Simulation & Modeling</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">ANSYS Fluent</span><span class="text-teal font-mono text-xs">Expert</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="95%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">ANSYS APDL</span><span class="text-teal font-mono text-xs">Expert</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">COMSOL</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Quantum ESPRESSO</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Phonopy / DFT</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">FEA / CFD</span><span class="text-teal font-mono text-xs">Expert</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="93%"></div></div></div>
           </div>
         </div>
 
         <div class="fade-in">
-          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-4">Programming</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="pill">Python</span>
-            <span class="pill">MATLAB</span>
-            <span class="pill">C++</span>
-            <span class="pill">Fortran</span>
-            <span class="pill">HPC Workflows</span>
+          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-5">Programming</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Python</span><span class="text-teal font-mono text-xs">Expert</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">MATLAB</span><span class="text-teal font-mono text-xs">Expert</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">C++</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Fortran</span><span class="text-teal font-mono text-xs">Familiar</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="55%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">HPC Workflows</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70%"></div></div></div>
           </div>
         </div>
 
         <div class="fade-in">
-          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-4">CAD & Design</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="pill">SolidWorks</span>
-            <span class="pill">Fusion 360</span>
-            <span class="pill">Tinkercad</span>
-            <span class="pill">GD&T</span>
-            <span class="pill">DFM / DFA / DFC</span>
+          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-5">CAD & Design</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">SolidWorks</span><span class="text-teal font-mono text-xs">Expert</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="95%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Fusion 360</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">GD&T</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">DFM / DFA / DFC</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Tinkercad</span><span class="text-teal font-mono text-xs">Familiar</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="60%"></div></div></div>
           </div>
         </div>
 
         <div class="fade-in">
-          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-4">Materials Characterization</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="pill">Raman Spectroscopy</span>
-            <span class="pill">DSC</span>
-            <span class="pill">TGA</span>
-            <span class="pill">XRD</span>
-            <span class="pill">SEM</span>
-            <span class="pill">Laser Flash (LFA467)</span>
-            <span class="pill">Four Point Probe</span>
-            <span class="pill">3D Scanning</span>
+          <h3 class="skills-heading text-sm font-semibold text-teal uppercase tracking-widest mb-5">Materials Characterization</h3>
+          <div class="space-y-4">
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Raman Spectroscopy</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">DSC / TGA</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">XRD / SEM</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">Laser Flash (LFA467)</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div></div>
+            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-text-2">3D Scanning</span><span class="text-teal font-mono text-xs">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72%"></div></div></div>
           </div>
         </div>
 
