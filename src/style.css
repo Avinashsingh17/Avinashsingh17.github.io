@@ -435,6 +435,31 @@
   }
 }
 
+/* ===== MODAL SCROLL PERFORMANCE ===== */
+#project-modal {
+  will-change: opacity;
+  contain: layout style;
+}
+
+#project-modal .modal-backdrop {
+  transform: translateZ(0);
+}
+
+#project-modal .modal-panel {
+  will-change: transform;
+  contain: layout style paint;
+}
+
+#project-modal #modal-body {
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+}
+
+#project-modal .modal-header {
+  transform: translateZ(0);
+}
+
 /* ===== MODAL MOBILE FULLSCREEN ===== */
 @media (max-width: 600px) {
   #project-modal .modal-panel {

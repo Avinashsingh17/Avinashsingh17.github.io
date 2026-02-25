@@ -6,7 +6,7 @@ const projectData = {
     period: 'Jan 2023 – Present',
     affiliation: 'Micro/Nano Heat Transfer Lab, University of Oklahoma',
     advisor: 'Prof. Jivtesh Garg',
-    tags: ['BTMS', 'CPCM', 'Heat Transfer', 'SolidWorks', 'GD&T'],
+    tags: ['BTMS', 'CPCM', 'Heat Transfer', 'SolidWorks'],
     tagline: 'Hybrid cooling achieving automotive-grade thermal uniformity',
     banner: {
       gradient: 'linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 40%, #e63956 100%)',
@@ -22,18 +22,15 @@ const projectData = {
     objectives: [
       'Evaluate and compare air-cooled, liquid-cooled, CPCM-enhanced, and hybrid cooling configurations for battery thermal management',
       'Achieve temperature uniformity (ΔT < 2°C) across battery modules during charge/discharge cycles',
-      'Design a Couette-shear extrusion tool for CPCM fabrication with full GD&T drawings and BOM',
     ],
     methods: [
       'Designed and fabricated battery thermal modules with integrated cooling channels and CPCM enclosures',
       'Performed comparative thermal testing across four cooling configurations under standardized charge/discharge protocols',
-      'Created detailed SolidWorks CAD models with GD&T-compliant engineering drawings and Bill of Materials',
       'Collaborated with dynamic systems modeling researchers to understand thermal and operational dynamics of BTMS',
     ],
     results: [
       'Achieved temperature uniformity of <strong>ΔT < 2°C</strong> across battery thermal modules — meeting automotive industry standards',
       'Hybrid cooling (liquid + CPCM) demonstrated superior thermal performance compared to single-mode cooling approaches',
-      'Designed a complete Couette-shear extrusion tool with manufacturing-ready GD&T drawings',
       'Developed high thermal conductivity composite phase change materials (CPCM) by integrating paraffin and expanded graphite',
     ],
     significance: 'Battery thermal management is critical for electric vehicle safety and performance. Temperature non-uniformity accelerates degradation and poses safety risks. This work demonstrates a viable hybrid cooling approach achieving automotive-grade thermal uniformity, directly applicable to next-generation EV battery pack design.',
@@ -485,10 +482,10 @@ export function initProjectModals() {
   modal.id = 'project-modal';
   modal.className = 'fixed inset-0 z-[2000] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300';
   modal.innerHTML = `
-    <div class="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>
-    <div class="modal-panel relative w-[94vw] max-w-[900px] max-h-[90vh] bg-surface-2/95 backdrop-blur-xl border border-border/60 rounded-2xl shadow-[0_0_60px_rgba(230,57,86,0.15)] overflow-hidden scale-95 transition-transform duration-300 flex flex-col">
+    <div class="modal-backdrop absolute inset-0 bg-black/80" data-close></div>
+    <div class="modal-panel relative w-[94vw] max-w-[900px] max-h-[90vh] bg-surface-2 border border-border/60 rounded-2xl shadow-[0_4px_32px_rgba(0,0,0,0.5)] overflow-hidden scale-95 transition-transform duration-300 flex flex-col">
       <div id="modal-banner" class="relative w-full h-48 shrink-0 overflow-hidden max-[600px]:h-32"></div>
-      <div class="modal-header sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-border/50 bg-surface-2/90 backdrop-blur-md">
+      <div class="modal-header sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-border/50 bg-surface-2">
         <h3 id="modal-title" class="text-lg font-bold pr-4 leading-snug"></h3>
         <button class="modal-close shrink-0 w-9 h-9 rounded-lg bg-bg/50 border border-border/50 flex items-center justify-center text-text-3 hover:text-crimson hover:border-crimson/40 transition-all duration-200" data-close aria-label="Close">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>

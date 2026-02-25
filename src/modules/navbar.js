@@ -8,7 +8,7 @@ export function initNavbar() {
   // Scroll effect — add shadow when scrolled
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  }, { passive: true });
 
   // Hamburger toggle
   hamburger.addEventListener('click', () => {
