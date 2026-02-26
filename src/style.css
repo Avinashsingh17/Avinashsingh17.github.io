@@ -491,9 +491,46 @@
   100% { opacity: 0; transform: scale(2.2); }
 }
 
-/* ===== EXPERIENCE TOGGLE ===== */
-.exp-extra.hidden {
-  display: none;
+/* ===== EXPERIENCE TOGGLE (smooth) ===== */
+.exp-extra {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+  margin-bottom: 0;
+}
+
+.exp-extra.visible {
+  max-height: 200px;
+  opacity: 1;
+  margin-bottom: 6px;
+}
+
+/* ===== ROLE SWITCHER ===== */
+#role-switcher {
+  animation: role-switcher-in 0.4s ease-out both;
+  animation-delay: 1s;
+}
+
+@keyframes role-switcher-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== ROLE BANNER (index.html) ===== */
+.role-banner {
+  background: linear-gradient(90deg, rgba(0,212,170,0.06) 0%, rgba(56,189,248,0.04) 100%);
+  border-bottom: 1px solid rgba(0,212,170,0.12);
+}
+
+.role-banner a {
+  color: var(--color-text-3);
+  font-size: 0.78rem;
+  transition: color 0.2s;
+}
+
+.role-banner a:hover {
+  color: var(--color-teal);
 }
 
 /* ===== SKILL BARS ===== */

@@ -32,7 +32,7 @@ export function initExpToggle() {
     const extras = card.querySelectorAll('.exp-extra');
     const isOpen = btn.classList.contains('open');
 
-    extras.forEach(el => el.classList.toggle('hidden'));
+    extras.forEach(el => el.classList.toggle('visible'));
 
     btn.classList.toggle('open');
     btn.innerHTML = isOpen ? 'Show more &darr;' : 'Show less &uarr;';

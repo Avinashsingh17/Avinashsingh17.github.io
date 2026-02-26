@@ -1,0 +1,175 @@
+================================================================================
+                         AVINASH NAYAL — MATERIALS SCIENTIST
+================================================================================
+Norman, OK 73019 | avinash.nayal@gmail.com
+LinkedIn: linkedin.com/in/avinashsinghnayal17 | Portfolio: avinashnayal.com
+
+================================================================================
+SUMMARY
+================================================================================
+Materials Scientist and PhD candidate (University of Oklahoma) with 5+ years of
+research experience in nanocomposite synthesis, thermal transport characterization,
+and first-principles DFT modeling. Demonstrated expertise in polymer nanocomposites
+achieving record-breaking 4030% thermal conductivity enhancement. 9 peer-reviewed
+publications in RSC Nanoscale, Materials Chemistry and Physics, and related journals.
+Proficient in Raman spectroscopy, DSC/TGA, XRD, SEM, LFA, and computational tools
+including Quantum ESPRESSO and Phonopy.
+
+================================================================================
+EDUCATION
+================================================================================
+Ph.D. in Mechanical Engineering (In Progress)
+University of Oklahoma, Norman, OK
+GPA: 3.89/4.0 | Expected 2025
+Focus: Nanocomposite materials, thermal transport, first-principles modeling
+
+M.S. in Mechanical Engineering
+Arizona State University, Tempe, AZ
+GPA: 3.67/4.0 | 2020
+Thesis: Near-field radiative heat transfer in solar thermophotovoltaics
+
+B.Tech in Mechanical Engineering
+Indian Institute of Technology (IIT) Jodhpur, India
+GPA: 7.62/10 | 2018
+
+================================================================================
+SKILLS
+================================================================================
+Materials Characterization:
+  Raman Spectroscopy, SEM, XRD, DSC, TGA, Laser Flash Analysis (LFA467),
+  Four Point Probe, 3D Scanning
+
+Simulation & Modeling:
+  Quantum ESPRESSO, Phonopy, First-Principles DFT, COMSOL Multiphysics
+
+Programming:
+  Python, MATLAB, C++, Fortran, HPC Workflows (SLURM, PBS)
+
+CAD & Design:
+  SolidWorks, Fusion 360, GD&T, DFM/DFA/DFC
+
+================================================================================
+EXPERIENCE
+================================================================================
+Graduate Research Assistant — Phase 1: Nanocomposites & DFT     Aug 2020 – May 2023
+University of Oklahoma, Norman, OK
+- Synthesized expanded graphite/paraffin nanocomposites achieving record 3070%
+  thermal conductivity enhancement; published in Materials Chemistry and Physics
+- Developed graphene/epoxy composites via DMF solvent-casting, achieving 44%
+  thermal conductivity improvement with only 4 vol% loading; published in MethodsX
+- Performed first-principles DFT simulations (Quantum ESPRESSO, Phonopy) to
+  compute phonon thermal conductivity of hexagonal BC2P (162 W/mK); published in
+  RSC Advances
+- Characterized materials using Raman spectroscopy, DSC, TGA, XRD, SEM, and
+  Laser Flash Analysis (LFA467)
+
+Research Intern — Nuclear Fusion Materials                      May 2023 – Aug 2023
+Oak Ridge National Laboratory (ORNL), Oak Ridge, TN
+- Designed 3D-printable W/ZrC composite components for plasma-facing fusion
+  reactor applications using binder-jet additive manufacturing
+- Modeled thermal-structural behavior of divertor mock-ups in ANSYS, validating
+  designs for >10 MW/m² steady-state heat flux
+- Characterized W/ZrC composite microstructure and thermal properties
+
+Graduate Research Assistant — Phase 2: BTMS & Composites        May 2023 – Present
+University of Oklahoma, Norman, OK
+- Fabricated CPCM composite heat sinks achieving ΔT < 2°C thermal uniformity
+  across 6-cell Li-ion battery modules
+- Conducted Couette-shear measurements for expanded graphite suspensions using
+  custom rheometer setup
+
+Master's Thesis Research — STPV                                 Jan 2019 – May 2020
+Arizona State University, Tempe, AZ
+- Designed novel STPV experimental setup with silica-microsphere gap control
+  for near-field radiative heat transfer measurement
+
+Teaching Assistant                                              Aug 2020 – May 2021
+University of Oklahoma, Norman, OK
+- TA for Thermodynamics and Machine Design courses
+
+Engineering Intern                                              May 2017 – Jul 2017
+Indian Institute of Technology (IIT) Jodhpur, India
+- Designed and fabricated an automated grain-size sorting machine using
+  SolidWorks and Arduino
+
+Research Intern — Nuclear Fusion                                Dec 2017 – May 2018
+Institute for Plasma Research (IPR), Gandhinagar, India
+- Performed FEM thermal-structural analysis of ITER divertor components in
+  ANSYS APDL under >10 MW/m² heat flux conditions
+
+================================================================================
+PUBLICATIONS
+================================================================================
+1. Tarannum F., Danayat S., Nayal A., et al. "Hydrogen-peroxide intercalated
+   expanded graphite facilitates large enhancement in thermal conductivity."
+   Materials Research & Technology, 2024.
+
+2. Annam R.S., Danayat S., Nayal A., et al. "Thickness dependent thermal
+   conductivity of strontium titanate thin films." JVST-A, 2024.
+
+3. Danayat S., Tasnim Z., Nayal A., Annam R., Garg J. "Role of four-phonon
+   processes in thermal conductivity." RSC Nanoscale, 2024.
+
+4. Danayat S., Nayal A., Tarannum F., Annam R., Muthaiah R., Garg J. "Superior
+   enhancement in thermal conductivity of epoxy/graphene nanocomposites through
+   use of dimethylformamide." MethodsX, 2023.
+
+5. Tarannum F., Danayat S., Nayal A., et al. "Thermally expanded graphite
+   polyetherimide composite with superior electrical and thermal conductivity."
+   Materials Chemistry & Physics, 2023.
+
+6. Tarannum F., Danayat S., Nayal A., Muthaiah R., Annam R., Garg J. "Large
+   Enhancement in Thermal Conductivity of Solvent-Cast Expanded Graphite/
+   Polyetherimide Composites." Nanomaterials, 2022.
+
+7. Muthaiah R., Tarannum F., Danayat S., Annam R., Nayal A., Garg J. "The
+   superior effect of edge functionalization relative to basal plane
+   functionalization on thermal properties of graphene composites." RSC PCCP, 2022.
+
+8. Nayal A., Garg J. "Expanded Graphite/Paraffin composite phase change materials:
+   Effect of solvent and ultrasonication on thermal properties." APS March
+   Meeting, 2022.
+
+9. Muthaiah R., Tarannum F., Annam R., Nayal A., Danayat S., Garg J. "Thermal
+   Conductivity of Hexagonal BC2P - a First Principle Study." RSC Advances, 2020.
+
+================================================================================
+RESEARCH PROJECTS
+================================================================================
+1. Advanced Composite Materials
+   - Expanded graphite/paraffin composites: 3070% thermal conductivity enhancement
+   - Graphene/epoxy nanocomposites: 44% enhancement at 4 vol% loading
+   - Thermally expanded graphite/PEI composites: superior electrical & thermal properties
+
+2. First-Principles Phonon Transport
+   - DFT simulations of phonon thermal transport in GaN and BC₂P
+   - Computed thermal conductivity of 162 W/mK for hexagonal BC₂P
+   - Tools: Quantum ESPRESSO, Phonopy
+
+3. Battery Thermal Management Systems
+   - Comparative evaluation of air, liquid, CPCM, and hybrid cooling
+   - CPCM composite heat sinks achieving ΔT < 2°C uniformity
+
+4. Solar Thermophotovoltaics (STPV)
+   - Near-field radiative heat transfer experimental setup
+   - MATLAB-based theoretical model validated to <5% deviation
+
+5. ITER Divertor Thermal Analysis
+   - FEM modeling of >10 MW/m² heat flux divertor components
+   - 30% improvement in thermal uniformity through design optimization
+
+6. Fuel Cell System Upscaling
+   - 5 kWe to 30 kWe diesel autothermal reformer (DRDO-sponsored)
+   - ASPEN-based process modeling for scale-up
+
+================================================================================
+AWARDS & SCHOLARSHIPS
+================================================================================
+2024  Exxon Mobile Milam Scholarship, University of Oklahoma
+2023  Milton J. Gordon Memorial Scholarship, University of Oklahoma
+2023  Exxon Mobile Milam Scholarship, University of Oklahoma
+2023  Gallogly College of Engineering Scholarship, University of Oklahoma
+2022  Nettie Vincent Boggs Graduate Fellowship, University of Oklahoma
+2022  Jim & Bee Close Engineering Scholarship, University of Oklahoma
+2021  John E. Francis Scholarship, University of Oklahoma
+2021  Jim & Bee Close Engineering Scholarship, University of Oklahoma
