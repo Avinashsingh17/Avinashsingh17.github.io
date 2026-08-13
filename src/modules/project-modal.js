@@ -42,7 +42,7 @@ const projectData = {
     affiliation: 'Micro/Nano Heat Transfer Lab, University of Oklahoma',
     advisor: 'Prof. Jivtesh Garg',
     tags: ['Graphene', 'EG/PCM', 'Nanomaterials', 'Raman', 'XRD', 'SEM', 'EMT'],
-    tagline: 'Record-breaking polymer nanocomposites with 4030% thermal enhancement',
+    tagline: 'Record-breaking polymer nanocomposites with 2770% thermal enhancement',
     banner: {
       gradient: 'linear-gradient(135deg, #38BDF822 0%, #0D1117 100%)',
       pattern: 'crystalline-lattice',
@@ -59,7 +59,7 @@ const projectData = {
     ],
     highlights: [
       { value: '9.5 W/mK', label: 'Peak Thermal Conductivity' },
-      { value: '4030%', label: 'Enhancement over Pure PEI' },
+      { value: '2770%', label: 'Enhancement over Pure PEI' },
       { value: '969 S/m', label: 'Electrical Conductivity' },
       { value: '4', label: 'Peer-Reviewed Papers' },
     ],
@@ -77,7 +77,7 @@ const projectData = {
       'Effective Medium Theory (EMT) modeling to extract interfacial thermal resistance and predict composite properties',
     ],
     results: [
-      'Achieved thermal conductivity of <strong>9.5 W/mK</strong> at 10 wt% EG filler — a <strong>~4030% enhancement</strong> over pure PEI (H₂O₂ intercalation route)',
+      'Achieved thermal conductivity of <strong>9.5 W/mK</strong> at 10 wt% EG filler — a <strong>~2770% enhancement</strong> over pure PEI (H₂O₂ intercalation route)',
       'Demonstrated <strong>7.3 W/mK</strong> with simultaneous electrical conductivity of <strong>969 S/m</strong> (19 orders of magnitude increase)',
       'Proved H₂O₂ preserves defect-free graphite structure (I<sub>D</sub>/I<sub>G</sub> ~ 0.04) vs. NaClO₃ (I<sub>D</sub>/I<sub>G</sub> ~ 0.25)',
       'DMF-based graphene/epoxy composites showed <strong>44% higher thermal conductivity</strong> than acetone-based composites',
