@@ -15,6 +15,78 @@
   --color-text-3: #6E7681;
   --font-family-sans: 'Inter', system-ui, sans-serif;
   --font-family-mono: 'JetBrains Mono', monospace;
+  --font-family-serif: 'Source Serif 4', Georgia, serif;
+}
+
+/* ===== JOURNAL (LIGHT) THEME — scoped to thermal.html via [data-theme] ===== */
+/* Emitted after @theme so it wins on the root element when data-theme is set. */
+[data-theme="journal"] {
+  --color-bg:         #FBFAF7;
+  --color-surface:    #FFFFFF;
+  --color-surface-2:  #F2F0EA;
+  --color-border:     #E3DFD6;
+  --color-teal:       #1F4E46;
+  --color-teal-light: #2C6659;
+  --color-teal-dark:  #163830;
+  --color-cyan:       #9A6B3F;
+  --color-text:       #1B1A17;
+  --color-text-2:     #5E5A52;
+  --color-text-3:     #6B6659;
+}
+
+/* Serif display headings (journal only). Weight capped at 600, never 700. */
+[data-theme="journal"] h1,
+[data-theme="journal"] h2,
+[data-theme="journal"] .section-title,
+[data-theme="journal"] .timeline-content h3,
+[data-theme="journal"] .research-card h3,
+[data-theme="journal"] #modal-title {
+  font-family: var(--font-family-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Scoped overrides for hardcoded literals that can't be tokenized without
+   altering the dark pages. */
+[data-theme="journal"] .hero-bg {
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(31, 78, 70, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(154, 107, 63, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 20%, rgba(242, 240, 234, 0.9) 0%, transparent 70%);
+}
+[data-theme="journal"] .hero-bg::after {
+  background-image:
+    linear-gradient(rgba(31, 78, 70, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 78, 70, 0.04) 1px, transparent 1px);
+}
+[data-theme="journal"] #navbar.scrolled {
+  box-shadow: 0 1px 3px rgba(27, 26, 23, 0.06), 0 4px 16px rgba(27, 26, 23, 0.05);
+}
+[data-theme="journal"] .timeline-dot {
+  box-shadow: none;
+}
+[data-theme="journal"] .tag {
+  background: rgba(31, 78, 70, 0.07);
+  border-color: rgba(31, 78, 70, 0.22);
+}
+[data-theme="journal"] .pill:hover {
+  box-shadow: none;
+}
+[data-theme="journal"] .pub-link {
+  border-color: rgba(154, 107, 63, 0.35);
+}
+[data-theme="journal"] .pub-link:hover {
+  background: rgba(154, 107, 63, 0.12);
+  box-shadow: none;
+}
+[data-theme="journal"] .modal-section-title {
+  border-bottom-color: rgba(31, 78, 70, 0.18);
+}
+[data-theme="journal"] .skill-bar-track {
+  background: rgba(27, 26, 23, 0.08);
+}
+[data-theme="journal"] .gallery-lightbox {
+  background: rgba(27, 26, 23, 0.55);
 }
 
 /* ===== BASE RESET ===== */
@@ -38,7 +110,7 @@
   }
 
   strong {
-    color: #fff;
+    color: var(--color-text);
   }
 
   /* Custom scrollbar */
@@ -66,7 +138,7 @@
     left: 16px;
     z-index: 9999;
     background: var(--color-teal);
-    color: #0D1117;
+    color: var(--color-bg);
     padding: 8px 16px;
     border-radius: 0 0 8px 8px;
     font-weight: 600;

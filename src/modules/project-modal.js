@@ -298,6 +298,34 @@ const projectData = {
   },
 };
 
+// ===== THEME-AWARE ACCENTS =====
+// The journal (light) theme swaps each project's dark accent for a darker,
+// paper-legible counterpart and fades banner gradients to the light surface.
+// On the dark pages isJournal() is false, so output is byte-identical to before.
+const JOURNAL_ACCENTS = {
+  '#00D4AA': '#0E7C63',
+  '#38BDF8': '#1D6FA5',
+  '#F59E0B': '#9A6205',
+  '#818CF8': '#4F46A8',
+  '#34D399': '#15795A',
+  '#60A5FA': '#2A5FA8',
+};
+
+function isJournal() {
+  return typeof document !== 'undefined'
+    && document.documentElement.getAttribute('data-theme') === 'journal';
+}
+
+function themedAccent(hex) {
+  return isJournal() ? (JOURNAL_ACCENTS[hex] || hex) : hex;
+}
+
+function themedGradient(accentHex) {
+  const accent = themedAccent(accentHex);
+  const surface = isJournal() ? '#FFFFFF' : '#0D1117';
+  return `linear-gradient(135deg, ${accent}22 0%, ${surface} 100%)`;
+}
+
 // ===== SVG BANNER PATTERN GENERATOR =====
 function generateBannerSVG(pattern, color) {
   const patterns = {
@@ -456,8 +484,8 @@ function generateCardBannerHTML(banner) {
   }
   return `
     <div class="card-banner relative h-36 max-[480px]:h-28 overflow-hidden">
-      <div class="absolute inset-0" style="background: ${banner.gradient};"></div>
-      ${generateBannerSVG(banner.pattern, banner.accentColor)}
+      <div class="absolute inset-0" style="background: ${themedGradient(banner.accentColor)};"></div>
+      ${generateBannerSVG(banner.pattern, themedAccent(banner.accentColor))}
       <div class="absolute inset-0 bg-gradient-to-t from-surface-2/60 to-transparent"></div>
     </div>`;
 }
@@ -471,8 +499,8 @@ function generateModalBannerHTML(banner) {
       <div class="absolute inset-0 bg-gradient-to-t from-surface-2 via-surface-2/50 to-transparent"></div>`;
   }
   return `
-    <div class="absolute inset-0" style="background: ${banner.gradient};"></div>
-    ${generateBannerSVG(banner.pattern, banner.accentColor)}
+    <div class="absolute inset-0" style="background: ${themedGradient(banner.accentColor)};"></div>
+    ${generateBannerSVG(banner.pattern, themedAccent(banner.accentColor))}
     <div class="absolute inset-0 bg-gradient-to-t from-surface-2/70 to-transparent"></div>`;
 }
 
