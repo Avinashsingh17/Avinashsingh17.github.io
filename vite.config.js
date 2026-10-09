@@ -12,6 +12,7 @@ export default defineConfig({
         thermal: resolve(__dirname, 'thermal.html'),
         mechanical: resolve(__dirname, 'mechanical.html'),
         materials: resolve(__dirname, 'materials.html'),
+        'li-ion-core-temperature': resolve(__dirname, 'projects/li-ion-core-temperature/index.html'),
       },
     },
   },

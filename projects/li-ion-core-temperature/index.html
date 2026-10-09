@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="journal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predicting a Li-ion Cell's Hidden Core Temperature | Avinash Nayal</title>
+  <meta name="description" content="Physics + ML estimate of a lithium-ion cell's core temperature from current, voltage and surface temperature, with the dominant ~5 °C label uncertainty quantified rather than hidden. Core temperatures are model-derived, not measured." />
+  <meta property="og:title" content="Predicting a Li-ion Cell's Hidden Core Temperature | Avinash Nayal" />
+  <meta property="og:description" content="A physics + ML hybrid that names its own weakest point and measures it: a ~5 °C core-temperature uncertainty band that dwarfs the ~0.01 °C gap between ML models." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://avinashnayal.com/projects/li-ion-core-temperature/" />
+  <meta property="og:image" content="https://avinashnayal.com/assets/projects/li-ion-core-temperature/F2_rcs_band_sweep.png" />
+  <link rel="canonical" href="https://avinashnayal.com/projects/li-ion-core-temperature/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="module" src="/src/writeup.js"></script>
+</head>
+<body class="font-sans bg-bg text-text leading-relaxed overflow-x-hidden">
+
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-teal to-teal-light z-[9999] transition-none" style="width: 0%"></div>
+  <a href="#summary" class="skip-link">Skip to main content</a>
+
+  <!-- ===== NAVBAR (write-up variant) ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-[1000] h-16 bg-bg/85 backdrop-blur-xl border-b border-border/50">
+    <div class="max-w-[1100px] mx-auto h-full px-6 flex items-center justify-between gap-4">
+      <a href="/" class="font-mono text-xl font-semibold text-teal tracking-widest border-2 border-teal px-2.5 py-1 rounded-md hover:bg-teal hover:text-white transition-colors duration-300" aria-label="Avinash Nayal, home">AN</a>
+      <div class="flex items-center gap-1">
+        <a href="/#research" class="text-sm font-medium text-text-2 px-3 py-1.5 rounded-md hover:text-text hover:bg-surface-2 transition-colors duration-300">&larr; Portfolio</a>
+        <a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml" rel="noopener" target="_blank" class="text-sm font-medium text-text-2 px-3 py-1.5 rounded-md hover:text-text hover:bg-surface-2 transition-colors duration-300 max-[420px]:hidden">Code</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+    <article class="wu">
+
+      <!-- ===== HEADER ===== -->
+      <header class="wu-header">
+        <p class="wu-kicker">Project write-up &middot; Part 1 &middot; Physics&ndash;ML hybrid</p>
+        <h1>Predicting a Lithium-Ion Cell's Hidden Core Temperature</h1>
+        <p class="wu-byline">Avinash Nayal &middot; Ph.D. Candidate, Mechanical Engineering, University of Oklahoma</p>
+        <div class="wu-actions">
+          <a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml" rel="noopener" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-teal text-white border-2 border-teal hover:bg-teal-dark hover:border-teal-dark transition-colors duration-300"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.75c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> View code on GitHub</a>
+          <a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml/blob/main/report/part2_phase_a.md" rel="noopener" target="_blank" data-part2-link class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-transparent text-teal border-2 border-teal hover:bg-teal hover:text-white transition-colors duration-300">Part 2 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </header>
+
+      <!-- ===== UPDATE CALLOUT (keep at top) ===== -->
+      <aside class="wu-callout" role="note" aria-label="Update, October 2026">
+        <p><strong>Update (October 2026):</strong> A follow-up audit (<a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml/blob/main/report/part2_phase_a.md" rel="noopener" target="_blank" data-part2-link>Part 2</a>) found that the fitted-parameter confidence intervals recorded in this project's calibration files, which are not quoted on this page, were understated by about 50&times;, because of a solver-tolerance issue in the fitting code. The headline result stands: the ~5 &deg;C core-temperature uncertainty band (a separate, geometry-based range), along with all ML results.</p>
+      </aside>
+
+      <!-- ===== 30-SECOND SUMMARY ===== -->
+      <section id="summary" class="wu-summary" aria-label="Summary">
+        <dl class="wu-stats">
+          <div class="wu-stat">
+            <dt>Dominant uncertainty</dt>
+            <dd class="wu-stat__value">~5&nbsp;&deg;C</dd>
+            <dd class="wu-stat__label">Core-temperature label band from the unidentifiable <code>R_cs</code></dd>
+          </div>
+          <div class="wu-stat">
+            <dt>ML error (ridge)</dt>
+            <dd class="wu-stat__value">0.419&nbsp;&deg;C</dd>
+            <dd class="wu-stat__label">Leave-one-cycle-out RMSE, vs 2.15&nbsp;&deg;C mean for the <code>T_core = T_inf</code> baseline</dd>
+          </div>
+          <div class="wu-stat">
+            <dt>Model-choice effect</dt>
+            <dd class="wu-stat__value">~0.01&nbsp;&deg;C</dd>
+            <dd class="wu-stat__label">Gap between ridge and gradient boosting</dd>
+          </div>
+        </dl>
+
+        <aside class="wu-note wu-note--key" aria-label="Important: labels are model-derived">
+          <p><strong>Every core temperature on this page is model-derived, not measured.</strong> There is no core thermocouple in the data. A low ML error means agreement with those labels, not certified accuracy against a real cell core.</p>
+        </aside>
+
+        <p class="wu-lede"><strong>TL;DR.</strong> This project estimates the internal <em>core</em> temperature of a lithium-ion cell — the quantity that governs battery safety — from the signals a real battery management system can actually measure: current, voltage, and surface temperature. No public dataset measures core temperature directly, so a calibrated two-state physics model generates the core-temperature labels and a machine-learning model learns to reproduce them. <strong>Every core temperature in this report is model-derived, not measured.</strong> Two findings define the work. First, the dominant uncertainty is physical, not algorithmic: the parameter that sets the core-surface temperature gap is unidentifiable from surface data, leaving a roughly 5 °C uncertainty band on the labels themselves — an order of magnitude larger than the ML's own prediction error. Second, a simple linear model matches gradient boosting to within 0.01 °C, because that unobservable physics, not model choice, is the ceiling. The through-line of the whole project is an honest accounting of where its uncertainty comes from.</p>
+
+        <nav class="wu-toc" aria-label="On this page">
+          <span class="wu-toc__label">On this page</span>
+          <a href="#problem" class="wu-toc__link">Problem</a> <a href="#method" class="wu-toc__link">Method</a> <a href="#headline" class="wu-toc__link">Headline</a> <a href="#results" class="wu-toc__link">Results</a> <a href="#limitations" class="wu-toc__link">Limitations</a> <a href="#reflection" class="wu-toc__link">Reflection</a> <a href="#code-and-data" class="wu-toc__link">Code &amp; data</a>
+        </nav>
+      </section>
+
+<section id="problem" class="wu-section">
+  <h2><span class="wu-secnum">1</span> The problem: predicting a temperature you can't measure</h2>
+<p>Lithium-ion cells fail from the inside out. The temperature that drives degradation, thermal runaway, and safety margin is the <em>core</em> temperature, deep in the jellyroll — but that is not what gets measured. A battery management system, and nearly every public dataset, sees only the <em>surface</em> temperature from a sensor on the casing. Under gentle use the two are nearly equal; under hard, high-current use the core can run several degrees hotter than the surface — and that gap opens up exactly when it matters most.</p>
+<p>The analogy I keep returning to: it is like tracking a fever from a skin thermometer when what you care about is core body temperature. The skin reading is real and useful, but converting it to the core depends on how heat travels through the body, and you cannot read that from the outside.</p>
+<p>The project's job is to bridge that gap — to estimate core temperature from signals a real system can measure. The approach is a physics-ML hybrid. A two-state thermal model (a hot core node and a cooler surface node, coupled by the cell's internal thermal resistance) is calibrated against measured surface temperature and then used to generate core-temperature labels. A machine-learning model learns to predict those labels from current, voltage, surface temperature, and their recent history — the surrogate a deployed system could actually run.</p>
+<p>That design carries an unavoidable consequence, and it is the honest center of this writeup: <strong>the "ground-truth" core temperatures are model-derived, never measured.</strong> No core thermocouple exists in the data. That single fact shapes everything that follows — what can be validated, what cannot, and where the real uncertainty lives.</p>
+<p>So this writeup is organized around two kinds of honesty, on the conviction that the most credible thing a project like this can do is name its own limits precisely. The first is <em>physical</em>: what the data fundamentally cannot tell us. The parameter controlling the core-surface gap turns out to be unidentifiable from surface measurements, so rather than disguise it as a confident single number, the project quantifies it as an uncertainty band (Section 3). The second is <em>methodological</em>: how the evaluation was kept from fooling us. Arriving at numbers worth trusting meant catching three separate ways the results looked right while being wrong (Section 4). Method comes first (Section 2), then results and both kinds of honesty, then the limitations the project does not try to paper over.</p>
+</section>
+
+<section id="method" class="wu-section">
+  <h2><span class="wu-secnum">2</span> Method: physics first, then a learned surrogate</h2>
+<p>The pipeline has two stages. A calibrated physics model turns measurable signals into core-temperature labels; a machine-learning model then learns to reproduce those labels from the same measurable signals — so that a deployed system could skip the physics entirely and predict the core directly.</p>
+<p><strong>The data.</strong> I used the LG 18650HG2 dataset (McMaster University), real cells driven through standard automotive cycles — US06, LA92, UDDS, and eight mixed cycles — logged at 1 Hz. Everything in this writeup is the 25 °C set: eleven cycles where the cell was calibrated and tested in the same thermal regime. Colder ambients exist in the data and I deliberately set them aside; Section 4 shows why that boundary is real and not a convenience. The cell is never split row-by-row. Train and test are always <em>whole held-out cycles</em> — a row from the middle of a drive cycle is nearly identical to its neighbors, so a random split would test memorization, not generalization.</p>
+<aside class="wu-note" aria-label="Dataset attribution">
+  <p class="wu-note__label">Dataset</p>
+  <p>LG 18650HG2 Li-ion battery data &mdash; Kollmeyer, Vidal, Naguib &amp; Skells, McMaster University, published on Mendeley Data (V3), licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC&nbsp;BY&nbsp;4.0</a>. DOI <a href="https://doi.org/10.17632/cp3473x7xv.3" rel="noopener" target="_blank">10.17632/cp3473x7xv.3</a>. The raw data is not redistributed; the project repository holds code and model-derived artifacts only.</p>
+</aside>
+<figure class="wu-figure" id="figure-1">
+  <a href="/assets/projects/li-ion-core-temperature/F1_two_state_schematic.png" rel="noopener" target="_blank" aria-label="Open Figure 1 full size"><img src="/assets/projects/li-ion-core-temperature/F1_two_state_schematic.png" alt="Schematic of the two-state lumped thermal model: core node and surface node coupled by R_cs, surface coupled to ambient by R_sa, heat Q injected at the core." width="1357" height="775" loading="lazy" decoding="async" /></a>
+  <figcaption>Figure 1. Two-state lumped thermal model used to generate the core-temperature labels. Core node (heat capacity C_core = 40.10 J/K, model-derived T_core) and surface node (C_surf = 3.10 J/K, measured T_surface) are coupled by R_cs = 3.39 K/W (R_cs band [1.70, 8.49] K/W carries the physical uncertainty); the surface dissipates to ambient (T_inf = 23.15 °C at 25 °C) via R_sa = 5.21 K/W. Q = I·(V − V_OCV) injects irreversible heat at the core node. Core temperature is model-derived throughout this report — never measured. LOCKED 2026-06-18b.</figcaption>
+</figure>
+<p><strong>Heat in.</strong> The model's only energy input is the heat the cell generates, computed as current times overpotential: <code>Q = I·(V − V_OCV)</code>. That needs the cell's <em>resting voltage</em> at every charge level — the voltage it would settle to at rest — which I extracted from an 18-hour slow-discharge characterization (Figure 5). The gap between this resting curve and the voltage under load, times the current, is the power lost as heat.</p>
+<figure class="wu-figure wu-figure--narrow" id="figure-5">
+  <a href="/assets/projects/li-ion-core-temperature/F5_ocv_curve.png" rel="noopener" target="_blank" aria-label="Open Figure 5 full size"><img src="/assets/projects/li-ion-core-temperature/F5_ocv_curve.png" alt="Open-circuit voltage versus state of charge for the LG HG2 cell at 25 °C." width="1488" height="906" loading="lazy" decoding="async" /></a>
+  <figcaption>Figure 5. Open-circuit voltage V_OCV(SOC) for the LG HG2 cell, extracted from the C/20 characterization discharge at 25 °C. This lookup is used in the heat-generation term Q = I · (V − V_OCV) that drives the thermal model.</figcaption>
+</figure>
+<p><strong>The two-state model.</strong> The cell is represented as two connected thermal masses (Figure 1): a hot core where heat is generated, and a cooler surface that exchanges heat with the air. They are coupled by an internal thermal resistance, and the whole reason for two nodes instead of one is the quantity this project exists to estimate — the core-surface temperature gap, which at steady state is roughly <code>Q · R_cs</code>. Two coupled differential equations, integrated numerically, evolve the temperatures forward over each cycle.</p>
+<p><strong>Calibration — pin what you can, fit only what you must.</strong> The model has four physical parameters and only the surface temperature is measured, which makes a free four-parameter fit ill-posed: the optimizer can trade parameters off against each other to match the surface trace while producing nonsense underneath. So I constrained it instead. Total heat capacity is pinned from the cell's mass and specific heat. The surface-to-air resistance is fixed from cooling tails — stretches where the current is near zero and the surface decays exponentially toward its resting temperature. Only the remaining parameters are fit, against measured surface temperature on calibration cycles that never overlap the validation cycles. On an in-regime held-out cycle the modeled surface tracks the measurement to 0.38 °C RMSE (Figure 6) — though the figure also shows the model slightly <em>over</em>-predicting the surface peaks even here, a small bias that becomes the whole story at cold ambients in Section 4.</p>
+<figure class="wu-figure" id="figure-6">
+  <a href="/assets/projects/li-ion-core-temperature/F6_calibration_surface_fit.png" rel="noopener" target="_blank" aria-label="Open Figure 6 full size"><img src="/assets/projects/li-ion-core-temperature/F6_calibration_surface_fit.png" alt="Modeled versus measured surface temperature over the Mixed1 cycle at 25 °C." width="1633" height="906" loading="lazy" decoding="async" /></a>
+  <figcaption>Figure 6. Mixed1 @ 25 °C — modeled vs measured surface temperature using the locked 2026-06-18b central parameters (the same simulation that generated the core labels). Surface RMSE annotated. This is one of the two thermal-validation cycles whose pipeline-value claims are credible (<a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml/blob/main/knowledge/report-notes.md#2026-06-19-pipeline-value-claims-must-rest-on-thermal-validated-cycles-not-calibration-cycles" rel="noopener" target="_blank">see report-notes</a>); modeled and measured track closely on in-regime data.</figcaption>
+</figure>
+<p><strong>The labels are model-derived.</strong> This bears repeating because it structures everything: the core-temperature labels the ML stage trains on come <em>out of this model</em>, not out of a sensor. There is no core thermocouple anywhere in the data. A good surface fit means the model reproduces what we <em>can</em> measure; it says nothing directly about whether the core values underneath are right.</p>
+<p><strong>The learned surrogate.</strong> With labels in hand, the ML stage learns to predict core temperature from current, voltage, surface temperature, and their recent history — lags, short rolling averages, and the surface's rate of change. I started with ridge regression (a regularized linear model) as the baseline and added gradient boosting (a flexible tree ensemble) as the more powerful alternative. Every model is scored by leave-one-cycle-out: trained on ten cycles, tested on the eleventh it never saw, repeated for all eleven.</p>
+</section>
+
+<section id="headline" class="wu-section">
+  <h2><span class="wu-secnum">3</span> The headline: the uncertainty that matters most is the one we can't measure</h2>
+<aside class="wu-analogy">
+  <p class="wu-note__label">In plain terms</p>
+  <p>It's like estimating how hot an engine's core is from a thermometer taped to its casing. The casing reading is real, but converting it to the core temperature depends on how well heat travels through the metal &mdash; and you can't measure that from the outside. The honest move isn't to pretend you know it exactly; it's to say &ldquo;it's somewhere in this range, so the core is somewhere in this band.&rdquo;</p>
+</aside>
+<p>The single most important result in this project is not a performance number. It is that one parameter of the physics model — the internal resistance <code>R_cs</code> that sets the core-surface gap — cannot be pinned down from surface data, and that this, not anything about the machine learning, is where the real uncertainty lives.</p>
+<p>The reason is structural. <code>R_cs</code> is the multiplier on the very gap we are trying to estimate: <code>T_core − T_surf ≈ Q · R_cs</code>. But the surface temperature is almost insensitive to it — you can change <code>R_cs</code> substantially and barely move the surface trace the calibration actually sees. So the parameter that most determines the answer is the one the data constrains least. This is not a shortcoming of effort or method; two independent papers reach the same conclusion, one by formal identifiability analysis and one empirically, that this exact parameter is the blind spot of surface-only thermal estimation.</p>
+<p>The honest response is to refuse a false-precise single value. Instead I anchored <code>R_cs</code> to a physically plausible range from the cell's geometry — the radial conduction of an 18650 jellyroll across a span of literature thermal conductivities — and then propagated the <em>whole range</em> through the model. The result is Figure 2: the modeled core temperature is not a line but a band. Across the plausible <code>R_cs</code> range, the peak core temperature spreads by about 5 °C. That band is the dominant uncertainty in the entire pipeline.</p>
+<figure class="wu-figure wu-figure--feature" id="figure-2">
+  <a href="/assets/projects/li-ion-core-temperature/F2_rcs_band_sweep.png" rel="noopener" target="_blank" aria-label="Open Figure 2 full size"><img src="/assets/projects/li-ion-core-temperature/F2_rcs_band_sweep.png" alt="Line plot of model-derived core temperature on US06 at 25 °C with a shaded R_cs uncertainty band, and measured surface temperature dashed." width="1860" height="971" loading="lazy" decoding="async" /></a>
+  <figcaption>Figure 2. Model-derived core temperature on US06 @ 25 °C with the R_cs label-uncertainty band (R_cs ∈ [1.70, 8.49] K/W) shaded. Central line is the core trajectory at R_cs = 3.39 K/W (the geometric mid-band). The pipeline-wide R_cs uncertainty translates to a ~5 °C core-temperature spread; we show it here on US06 because that's where the band is widest (5.05 °C peak). It is the dominant physical uncertainty in the whole pipeline. Measured T_surface shown dashed for reference. US06 is the most aggressive 25 °C cycle and a thermal calibration cycle (<a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml/blob/main/knowledge/report-notes.md#2026-06-19-us06-is-the-least-trustworthy-label-yet-the-highest-stakes-cycle" rel="noopener" target="_blank">see report-notes on US06 trustworthiness</a>).</figcaption>
+</figure>
+<p>Hold that number against the machine learning. The two ML models — a simple linear one and a flexible tree ensemble — disagree with each other by about 0.01 °C, and each predicts the labels to within roughly half a degree. The physical uncertainty in the labels themselves is an order of magnitude larger than either the ML's error or the gap between models. This is the through-line stated quantitatively: <strong>the bottleneck was never the algorithm. It was always the part of the physics we cannot observe.</strong> A low prediction error certifies that the surrogate faithfully reproduces the labels — not that the labels' absolute core values are correct. The credible thing a project like this can do is say exactly that, and measure the band rather than hide it.</p>
+</section>
+
+<section id="results" class="wu-section">
+  <h2><span class="wu-secnum">4</span> Results</h2>
+<p>This is where the two honesty threads finally meet. I'll work in two layers, in the order the pipeline does: first, does the thermal model reproduce the one temperature I can actually check — the surface (§4a)? Then, given those labels, what does the ML stage learn, and what is it really limited by (§4b)?</p>
+<p>But before any of that, the part I held back.</p>
+<h3 id="the-three-mistakes-i-caught">The three mistakes I caught</h3>
+<p>Calibrating this model felt less like deriving an answer and more like sighting in a rifle. Your first group never lands on the bullseye — not because you aimed wrong, but because the scope isn't yet calibrated to where the barrel actually points. You read where the shots landed, adjust, fire again, and converge. Each of the three errors below was a miscalibration I only saw by looking at where the shots were landing.</p>
+<p><strong>1. I was feeding the model the wrong ambient temperature.</strong> I'd been using the chamber's nominal thermostat setpoint as the ambient reference. But the LG dataset reports the <em>setpoint</em>, not the measured chamber air temperature, and the two differ by a degree or more. The cell relaxes to the real chamber temperature — which I should have read off the asymptote of each cooling tail, not off the metadata. Using the setpoint baked a constant offset into every fit. The fix was to derive ambient (<code>T_inf</code>) from the cooling-tail asymptotes directly.</p>
+<p><strong>2. A validation cycle had leaked into calibration.</strong> To anchor the convective resistance I fit exponential decay to the rest periods — the cooling tails. One cycle, Mixed2, had its cooling tail sitting in <em>both</em> the calibration pool and the validation pool. The model had effectively seen part of its own test set, the textbook form of data leakage. The fix was to partition the tails by cycle before fitting anything.</p>
+<p><strong>3. I was grading the model on cycles too easy to fail.</strong> Some of the cycles I was validating on barely heated the cell — one or two degrees of excursion. A model can "pass" those without capturing any real dynamics, because "stay near ambient" is already almost the right answer. Reporting them flattered the model. I added an excursion gate so validation only runs on cycles with enough thermal swing to actually be a test.</p>
+<p>None of these were exotic. They're the ordinary ways a time-series pipeline lies to you, and the only reason I caught them is that the numbers kept looking slightly <em>too</em> good. That's the tell I now trust most.</p>
+<h3 id="4a-does-the-thermal-model-actually-reproduce-the-surface-figure-3">4a. Does the thermal model actually reproduce the surface? (Figure 3)</h3>
+<p>The surface temperature is the only thing in this whole pipeline I can validate against a real measurement, so this is the load-bearing check. Figure 3 stratifies five held-out cycles by thermal severity and compares the model's predicted surface temperature against two constant-temperature baselines: the <strong>nominal setpoint</strong> baseline (predict surface = the chamber's stated setpoint) and the stricter <strong><code>T_inf</code></strong> baseline (predict surface = the measured resting temperature). The second is the harder bar — beating it means the model's predicted temperature <em>rise</em> is doing real work, not just correcting a setpoint offset.</p>
+<figure class="wu-figure" id="figure-3">
+  <a href="/assets/projects/li-ion-core-temperature/F3_severity_validation_bars.png" rel="noopener" target="_blank" aria-label="Open Figure 3 full size"><img src="/assets/projects/li-ion-core-temperature/F3_severity_validation_bars.png" alt="Grouped bar chart of surface-temperature RMSE for the thermal model and two baselines on five held-out cycles at 25, 10 and 0 °C." width="1822" height="1042" loading="lazy" decoding="async" /></a>
+  <figcaption>Figure 3. Surface-temperature RMSE of the calibrated thermal model on five held-out validation cycles, compared to two trivial baselines: (i) predict T_surface = nominal chamber setpoint; (ii) predict T_surface = T_inf (data-driven cooling-tail asymptote). Cycle labels are color-coded by ambient regime: green = in-regime (25 °C, where the model was calibrated), amber = inconclusive (10 °C, mild excursion), red = out-of-regime (0 °C, cold-ambient extrapolation where the model breaks down). Peak excursion |T_s − T_inf| is annotated per group — it is the dynamic signal that was available to win. Note the cold-ambient (0 °C) failure: US06 @ 0 °C produces a model RMSE of 3.61 °C vs. baseline 1.99 °C. LOCKED 2026-06-18b.</figcaption>
+</figure>
+<p>The result splits cleanly into three regimes:</p>
+<div class="wu-table-wrap"><table>
+<thead>
+<tr>
+<th>Ambient</th>
+<th>Regime</th>
+<th>Result vs. both baselines</th>
+<th>Margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25 °C</td>
+<td>In-regime</td>
+<td>Beats both, including the strict <code>T_inf</code> dynamics test</td>
+<td>+0.45 to +0.85 °C</td>
+</tr>
+<tr>
+<td>10 °C</td>
+<td>Inconclusive</td>
+<td>Excursion too small to separate model from baselines</td>
+<td>—</td>
+</tr>
+<tr>
+<td>0 °C</td>
+<td>Out-of-regime</td>
+<td>Loses; over-predicts heat accumulation</td>
+<td>−0.19 to −1.62 °C</td>
+</tr>
+</tbody>
+</table></div>
+<p>(Figure 3 carries the per-cycle and per-baseline detail; the table summarizes by regime.)</p>
+<p>At 0 °C the model's predicted core-to-surface gap also reaches 6.7 °C on US06, implausibly large against the literature — another sign the model is outside the regime it was calibrated for.</p>
+<p>This is the empirical justification for scoping the core-temperature labels to 25 °C only. The model earns its keep in the regime it was calibrated for and degrades honestly outside it; I'd rather state that boundary than quietly average over it.</p>
+<h3 id="4b-the-ml-stage-figures-4-and-7">4b. The ML stage (Figures 4 and 7)</h3>
+<p>The ML stage learns the surrogate map from electrical and surface signals to the model-derived core label. Figure 4 reports leave-one-cycle-out (LOCO) error across all 11 usable cycles for the ridge baseline and HistGradientBoosting.</p>
+<div class="wu-table-wrap"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Pooled LOCO RMSE (°C)</th>
+<th>Max error (°C)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ridge <em>(reported)</em></td>
+<td>0.419</td>
+<td>1.86</td>
+</tr>
+<tr>
+<td>HistGradientBoosting</td>
+<td>0.412</td>
+<td>1.99</td>
+</tr>
+<tr>
+<td>Baseline: <code>T_core = T_inf</code></td>
+<td>2.15</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="wu-figure" id="figure-4">
+  <a href="/assets/projects/li-ion-core-temperature/F4_loco_ridge_vs_hgbr.png" rel="noopener" target="_blank" aria-label="Open Figure 4 full size"><img src="/assets/projects/li-ion-core-temperature/F4_loco_ridge_vs_hgbr.png" alt="Grouped bar chart of leave-one-cycle-out RMSE for ridge and gradient boosting on eleven 25 °C cycles, with the baseline as a dashed line." width="2004" height="995" loading="lazy" decoding="async" /></a>
+  <figcaption>Figure 4. Leave-one-cycle-out ML RMSE on model-derived T_core labels for the 11 LG 25 °C cycles: ridge vs HGBR. Bars are per-cycle held-out RMSE; cycles sorted by peak excursion (US06 first). Pooled values annotated in the title (ridge 0.419 vs HGBR 0.412 °C; max 1.86 vs 1.99 °C). Dashed reference line shows the mean per-cycle 'predict T_core = T_inf' baseline. The two ML models produce statistically indistinguishable held-out error — the surrogate map is effectively linear in this regime. Ridge has the better worst-case tail.</figcaption>
+</figure>
+<p>The two models are a near-tie. A ~0.01 °C gap between a linear model and a gradient-boosted ensemble tells me the surrogate map is close to linear — which in turn means <strong>the ML model is not the bottleneck.</strong> There's no capacity left to buy. I report ridge as the single model: statistically indistinguishable RMSE, a slightly tighter worst-case tail with the full feature set, and the simplicity advantage of a linear model on a public project page.</p>
+<p>Against the constant <code>T_core = T_inf</code> baseline, ridge is better by roughly 5×. So the pipeline <em>does</em> add value over assuming the core sits at ambient — but only on the cycles where that claim is clean (Mixed1 and Mixed2). I flag US06 explicitly: it was used to anchor <code>T_inf</code>, which makes any US06-based baseline comparison partly circular, and it's simultaneously the least-trustworthy label and the highest-stakes cycle. I don't lean on it.</p>
+<p>And here is where the two threads close. The ML error is around 0.4 °C RMSE. The reproduced core values it's predicting carry the ~5 °C <code>R_cs</code> label band from §3 — an unobservable-parameter uncertainty roughly an order of magnitude larger than the model's own error. Sharpening the ML buys nothing against a 5 °C wall set by physics I can't measure from the outside. <strong>The bottleneck was never model capacity. It was always the physics.</strong></p>
+<p><strong>Ablation (Figure 7).</strong> One footing note first: this experiment uses a fixed development split (test = Mixed1 + Mixed5), not the leave-one-cycle-out protocol behind Figure 4. That's deliberate — it keeps the full-feature and electrical-only rows on the same footing, so the degradation between them is a clean read. It's also why the full-feature numbers here differ slightly from the LOCO table above. When I deny the model its surface-temperature features and let it work from electrical signals alone, both models degrade sharply — surface temperature is carrying real signal, not just acting as a near-copy of the label. But the ranking flips:</p>
+<div class="wu-table-wrap"><table>
+<thead>
+<tr>
+<th>Feature set</th>
+<th>Model</th>
+<th>RMSE (°C)</th>
+<th>Max error (°C)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full (incl. surface)</td>
+<td>Ridge</td>
+<td>0.444</td>
+<td>1.35</td>
+</tr>
+<tr>
+<td>Full (incl. surface)</td>
+<td>HGBR</td>
+<td>0.434</td>
+<td>1.63</td>
+</tr>
+<tr>
+<td>Electrical only</td>
+<td>Ridge</td>
+<td>0.890</td>
+<td>4.39</td>
+</tr>
+<tr>
+<td>Electrical only</td>
+<td>HGBR</td>
+<td>0.696</td>
+<td>4.32</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="wu-figure" id="figure-7">
+  <a href="/assets/projects/li-ion-core-temperature/F7_ablation_bars.png" rel="noopener" target="_blank" aria-label="Open Figure 7 full size"><img src="/assets/projects/li-ion-core-temperature/F7_ablation_bars.png" alt="Two bar charts of RMSE and max error for ridge and gradient boosting, with and without surface-temperature features." width="2398" height="1027" loading="lazy" decoding="async" /></a>
+  <figcaption>Figure 7. Surface-feature ablation on the fixed dev split (TEST = Mixed1 + Mixed5). Left: RMSE; right: max-abs-error. Each panel: ridge full, ridge electrical-only (no surface features), HGBR full, HGBR electrical-only. With full features ridge has the better worst-case tail (max-abs: ridge 1.35 vs HGBR 1.63 °C). Strip the surface features and HGBR becomes better on BOTH RMSE (0.696 vs ridge's 0.890 °C) AND max-abs (4.32 vs ridge's 4.39 °C) — surface signals are doing the work that keeps ridge's tail tighter; without them the tree model edges ahead. This is exactly the regime a sensorless (electrical-only) deployment target would land in, and is therefore a documented reopener for the model choice (<a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml/blob/main/knowledge/decisions/model-selection.md#what-would-make-us-revisit" rel="noopener" target="_blank">see decisions/model-selection.md "What would make us revisit"</a>). LOCKED 2026-06-18b.</figcaption>
+</figure>
+<p>With the full feature set ridge holds the tighter tail; strip the surface features and HGBR wins on both metrics. So my model choice is conditional: ridge is right for the sensored setup I built, but a genuinely sensorless deployment — core temperature from current and voltage alone — would reopen the choice in HGBR's favor. That's a clean direction for follow-up rather than a result I'll overclaim here.</p>
+<p><strong>One finding without a figure.</strong> I'd planned a residual plot for the cold-ambient regime, but the residual data wasn't retained and I won't re-run the locked pipeline to manufacture it. In prose, then: at 0 °C the model systematically <em>accumulates</em> heat the cell never shows, the same failure visible in Figure 3's out-of-regime result seen from the residual side. The heat-generation-versus-cooling balance that the calibration found at 25 °C simply doesn't transfer to cold, and the error compounds over the cycle rather than canceling.</p>
+</section>
+
+<section id="limitations" class="wu-section">
+  <h2><span class="wu-secnum">5</span> Limitations: where the numbers are soft</h2>
+<p>The limitations of this project sit almost entirely on the physics-and-labels side of the pipeline — which is the same place the results kept pointing. I'll take the dominant one as already established and spend the space on the smaller biases a careful reader will still want named.</p>
+<p><strong>The label band is the limitation, and it's already on the table.</strong> Section 3 quantified it: <code>R_cs</code> is unidentifiable from surface data, so every core temperature in this report carries a ~5 °C band inherited from the <em>labels</em>, not the model. I won't re-derive it here, only restate its status. It is not one limitation among several — it is the limitation, and it sets the scale against which everything else in this section is small.</p>
+<p><strong>The SOC axis is approximate in three declared ways.</strong> <code>SOC = 1.0</code> is pinned to the characterization file's starting voltage (4.176 V) rather than true full charge (~4.20 V), so the top of every cycle reads <code>V_OCV</code> about 24 mV low, a bias that decays as the cell drains. SOC is normalized by the 3.0 Ah datasheet nominal, not the ~2.778 Ah measured at 25 °C, so my "100 %" is really ~93 % of usable capacity. And each cycle is assumed to start full — correct for the LG protocol, which fully charges before every test, but not a portable assumption. The same convention builds the OCV curve and runs the model, so these don't distort comparisons <em>between</em> cycles; they do mean the absolute heat term is a few percent soft, and the methods section should say so rather than imply the SOC axis is exact.</p>
+<p><strong>The resting-voltage curve is discharge-only.</strong> <code>V_OCV(SOC)</code> is built from the discharge half of the characterization sweep. Lithium-ion cells show a small charge/discharge hysteresis, so on regen segments — where current briefly pushes the cell toward higher charge — the heat term is slightly over-predicted. For this NMC chemistry the effect is small and one-directional; I name it rather than correct it, because averaging the charge and discharge halves is a refinement, not a fix for anything load-bearing.</p>
+<p><strong>The clamp is a monitor, not a guarantee.</strong> Cold cycles can pull the cell below the OCV table's lower bound; the simulator clamps SOC to the table range and counts the clamped samples per cycle, so any upward bias in <code>Q</code> from a floored <code>V_OCV</code> lands in the per-cycle record instead of hiding. That's a transparency mechanism — the cycles this writeup leans on don't trip it — but it's the reason cold-cycle heat terms can't be taken fully at face value.</p>
+<p><strong>The trustworthy cycles are few, and the most important one is compromised.</strong> As Section 4 showed, the clean pipeline-value claims rest on two cycles (Mixed1 and Mixed2), while US06 — the most aggressive cycle, and the one carrying the widest <code>R_cs</code> band — is also the cycle that anchors <code>T_inf</code>, which makes any US06-based baseline comparison partly circular. It is at once the highest-stakes and the least-trustworthy label, so I don't lean on it. The same honesty bounds the scope: the labels are 25 °C labels (Section 4a earns that line), and at 0 °C the model runs out of regime and over-accumulates heat (Section 4b). These aren't failures the project buries — they're edges it draws on purpose.</p>
+<p><strong>What the limitations share.</strong> Read the list back and the pattern is the one the results kept surfacing: every soft number here is about the heat term, the OCV axis, or the unobservable <code>R_cs</code> — the physics and the labels — and none of them is about the regressor. Model choice moved the answer by about a hundredth of a degree inside a five-degree band; the limitations live entirely on the other side of that ratio. The way to improve this project is not a better model.</p>
+<h3 id="the-validation-gap-the-core-labels-are-model-derived-not-measured">The validation gap: the core labels are model-derived, not measured</h3>
+<p>Everything above rests on one fact I want to state as plainly as I can: the core temperatures in this project are produced by the thermal model, not measured. The LG 18650HG2 dataset records surface temperature only — there is no internal thermocouple to check the labels against. So when the ML stage posts a low core-temperature error, that number says how faithfully it reproduced the thermal model's output, not how close it came to the cell's true core.</p>
+<p>Closing that gap needs a dataset with a <em>measured</em> internal temperature under normal operation, and I went looking for one. The honest result is that, for a cell and duty cycle like mine, it isn't publicly available. The closest cell format is Purdue's direct-internal-temperature 18650 work (<a href="https://doi.org/10.1038/s41598-023-41718-w" rel="noopener" target="_blank">Jones et al., 2023</a>), but its data is shared only on request, the cells are LCO rather than my NMC chemistry, and the protocol is gentle constant-current cycling where the measured core-to-surface gap peaked near 0.5 °C — too small a gap, in the wrong regime, to test a 5 °C label band. Warwick/WMG's instrumented 21700 cells (<a href="https://doi.org/10.1016/j.est.2022.105260" rel="noopener" target="_blank">Gulsoy et al., 2022</a>) run closer to my scenario and show the internal temperature sitting consistently and notably above the surface, but I could find no released drive-cycle dataset from that line of work — only an abuse-to-failure thermal-runaway set, which is out of scope here. The internal-temperature datasets that <em>are</em> public are overwhelmingly thermal-runaway studies. And even genuine ground truth carries an asterisk: embedding a thermocouple in the jellyroll adds thermal resistance and can distort the very gradient it is meant to measure.</p>
+<p>So the validation gap is real and, for now, cannot be closed with public data. That bounds what any accuracy figure here can claim — which I would rather say out loud than leave a careful reader to discover.</p>
+<h3 id="how-the-field-gets-around-this">How the field gets around this</h3>
+<p>The <code>R_cs</code> unidentifiability I hit is a known wall, not a quirk of my setup, and the literature takes two routes around it. The first is to measure the core directly with sensors built into the cell — thermocouples, RTDs, or fibre-optic Bragg-grating sensors — which is exactly the instrumented-cell work above, and exactly why a validation set for a project like this has to come from a lab equipped to do it. The second is sensorless: infer internal temperature from electrochemical impedance spectroscopy (EIS), which exploits the strong, repeatable temperature dependence of cell impedance at chosen frequencies; reviews report internal-temperature estimates within roughly 0.5–1 °C under favourable conditions (<a href="https://doi.org/10.3389/fceng.2022.804704" rel="noopener" target="_blank">Jinasena et al., 2022</a>). That route is genuinely appealing — no thermal model, no <code>R_cs</code> to identify — but it needs impedance measurements my dataset doesn't contain. Both paths land on the same point: with surface-temperature data alone, the core-to-surface resistance stays out of reach, so the honest move is to quantify the resulting band rather than model past it.</p>
+</section>
+
+<section id="reflection" class="wu-section">
+  <h2><span class="wu-secnum">6</span> Reflection: what the project was really about</h2>
+<p>I came in to build a regressor and left having built an uncertainty estimate. The most important number in the project is a band, not a prediction — and the regressor, the part I'd expected to be the work, turned out to be nearly trivial once the labels existed.</p>
+<p>The two honesty threads I set out with turned out to be one habit aimed in two directions. The physical thread — the <code>R_cs</code> band — is honesty about what the data can <em>identify</em>. The methodological thread — the three miscalibrations in Section 4 — is honesty about what the evaluation is actually <em>measuring</em>. Both are the same refusal: don't quote a number more confident than it has earned. And in both, the tell was identical. The moment a result looked slightly too good was the moment to distrust it — whether the flattery came from an unobservable parameter quietly setting the labels or from a leaked cycle quietly inflating the validation.</p>
+<p>The lesson I'll carry forward is narrower and more useful than "physics-informed models are good." It's that <em>physics-informed</em> is a phrase that earns trust, and that trust is exactly the hazard. A model built on a biased physical parameter will produce confident, low-error predictions — of biased labels. The low error is real; it just certifies agreement with the labels, not with the cell. Nothing inside the machine learning could have told me that. What told me was the boring scaffolding around it: a naive baseline in every table, whole held-out cycles instead of rows, and the discipline of asking each metric what it actually certifies. The thing that protected this project wasn't the physics — it was the bookkeeping around the physics.</p>
+<p>So the one-sentence version, the one I'd open a talk with: I built a careful estimator of a quantity I can't measure, and the most valuable thing it produces is an honest account of how much it can't know. The fever analogy from the start still holds. You can get very good at reading the skin — but past a point, the limit isn't your skill with the thermometer you have. It's the thermometer you don't.</p>
+</section>
+
+      <!-- ===== CODE & DATA ===== -->
+      <section id="code-and-data" class="wu-section">
+        <h2>Code and data</h2>
+<p>The full pipeline, the locked <code>2026-06-18b</code> calibration, the figures, and the working notes behind this write-up are public at <strong><a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml" rel="noopener" target="_blank">github.com/Avinashsingh17/li-ion-core-temperature-physics-ml</a></strong>. The repository's README walks through reproduction end to end, so I'll only flag the two things worth knowing before you clone.</p>
+<p><strong>The raw data isn't mine to redistribute.</strong> The drive cycles come from the LG 18650HG2 dataset (Kollmeyer et al., McMaster, on Mendeley Data); the repository carries the code and the model-derived artifacts but not the source data, which you download from Mendeley and place as the README describes.</p>
+<p><strong>Reproduction has two honest modes.</strong> The default path regenerates the published figures from the committed locked calibration — and the figure script refuses to run if that calibration drifts, so the numbers in this write-up can only ever come from the run that produced them. The second path re-derives the calibration from scratch, which is there for anyone who wants to check the physics rather than take it on trust; it may not land bit-for-bit on the locked parameters, and the same guard will say so. That split is the reproducibility version of the argument the whole write-up makes: be explicit about what's fixed, what's free, and how you'd know the difference.</p>
+        <aside class="wu-note" aria-label="Data citation">
+          <p class="wu-note__label">Data citation</p>
+          <p>Kollmeyer, P., Vidal, C., Naguib, M., &amp; Skells, M. (2020). <em>LG 18650HG2 Li-ion Battery Data and Example Deep Neural Network xEV SOC Estimator Script</em>. Mendeley Data, V3. McMaster University. <a href="https://doi.org/10.17632/cp3473x7xv.3" rel="noopener" target="_blank">https://doi.org/10.17632/cp3473x7xv.3</a>. Licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a>. All reported numbers come from the single locked run <code>2026-06-18b</code>.</p>
+        </aside>
+        <div class="wu-actions">
+          <a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml" rel="noopener" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-teal text-white border-2 border-teal hover:bg-teal-dark hover:border-teal-dark transition-colors duration-300"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.75c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg> Repository</a>
+          <a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml#reproducing-the-results" rel="noopener" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-transparent text-teal border-2 border-teal hover:bg-teal hover:text-white transition-colors duration-300">Reproduction steps (README)</a>
+        </div>
+      </section>
+
+      <!-- ===== PART 2 (forward link; repoint data-part2-link hrefs when the Part 2 page ships) ===== -->
+      <section id="part-2" class="wu-section">
+        <a href="https://github.com/Avinashsingh17/li-ion-core-temperature-physics-ml/blob/main/report/part2_phase_a.md" rel="noopener" target="_blank" data-part2-link class="wu-next group">
+          <span class="wu-kicker">Next &middot; Part 2</span>
+          <span class="wu-next__title">Part 1 left one parameter unidentified. Part 2 audits all four.</span>
+          <span class="wu-next__cta">Read Part 2 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="bg-bg border-t border-border/50 py-8 text-center text-text-3 text-sm">
+    <div class="max-w-[1100px] mx-auto px-6">
+      <p>&copy; 2026 Avinash Nayal &middot; Ph.D. Candidate, Mechanical Engineering &middot; University of Oklahoma</p>
+      <p class="mt-1 text-xs"><a href="/" class="hover:text-teal transition-colors duration-300">avinashnayal.com</a></p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-8 right-8 w-11 h-11 rounded-full bg-teal text-white flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-teal-dark hover:scale-110 z-50" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+</body>
+</html>
